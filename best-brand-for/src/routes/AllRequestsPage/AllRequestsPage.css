@@ -1,0 +1,9 @@
+.filterBox{
+    border:1px solid grey;
+  }
+  
+  .searchButton, .filterBox button{
+    border: 1px solid grey;
+    padding:5px;
+  }
+  

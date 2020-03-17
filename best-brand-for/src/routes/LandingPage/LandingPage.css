@@ -1,0 +1,35 @@
+.hero {
+    height:200px;
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items:center;
+  }
+  
+  .noAccountContainer {
+    height: 150px;
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items:center;
+  }
+  
+  .hero button, .noAccountContainer button {
+    border: 1px solid grey;
+    padding:5px;
+  }
+  
+  .shortContainer {
+    display:flex;
+    justify-content: space-evenly;
+  }
+  
+  .indivShort {
+    border:1px solid grey;
+    width:30%;
+  }
+  
+  footer {
+    height:50px;
+    border-top:1px solid black;
+  }

@@ -1,0 +1,25 @@
+.indivRequestPage{
+    display:flex;
+    height:80vh;
+  }
+  
+  .sideBar{
+    width:20%;
+  }
+  
+  .backButton{
+    border: 1px solid grey;
+    padding:5px;
+  }
+  
+  .mainBar{
+    width:80%;
+    overflow:scroll;
+  }
+  
+  .comment{
+    margin-left:30px;
+    margin-top:20px;
+    border:1px solid grey;
+  }
+  

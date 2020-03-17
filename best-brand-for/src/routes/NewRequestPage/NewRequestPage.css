@@ -1,0 +1,22 @@
+.newRequestPage{
+    display:flex;
+    height:80vh;
+  }
+  
+  .sideBar{
+    width:20%;
+  }
+  
+  .backButton{
+    border: 1px solid grey;
+    padding:5px;
+  }
+  
+  .mainBar{
+    width:80%;
+    overflow:scroll;
+  }
+  
+  .newRequestForm input{
+    border:1px solid black;
+  }

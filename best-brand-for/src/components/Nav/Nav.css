@@ -1,0 +1,28 @@
+nav {
+    height:50px;
+    border-bottom:1px solid black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    display: flex;
+  }
+  
+  nav ul li {
+    padding-left: 20px;
+  }
+
+  nav ul li div{
+    border:1px solid black;
+    background-color:black;
+    color:white;
+    border-radius:50%;
+    height:40px;
+    width:40px;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+  }
