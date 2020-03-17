@@ -44,8 +44,8 @@ export default class LoginPage extends Component {
                 TokenService.saveAuthToken(res.authToken)
                 //save user id in local storage for refresh
                 UserService.saveUserToken(res.id)
-                UserService.saveFNameToken(res.user.first_name)
-                UserService.saveLNameToken(res.user.last_name)
+                UserService.saveFNameToken(res.user.first_name /*change to res.first_name*/) 
+                UserService.saveLNameToken(res.user.last_name /*change to res.last_name*/)
                 
                 RequestApiService.getAllRequests()
                     .then(res=>{
