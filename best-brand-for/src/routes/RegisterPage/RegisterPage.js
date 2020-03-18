@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-//import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import {Redirect} from 'react-router-dom'
 
 import './RegisterPage.css'
@@ -37,29 +37,28 @@ export default class RegisterPage extends Component {
         }
         return(
             <section className='loginSection' >
-                <h1>Best Brand For</h1>
-                <p>Get the advice you need for the products you want</p>
+                <p>Get the advice you need for the products you want.</p>
                 <form className='loginForm' onSubmit={this.handleSubmit}>
-                <legend>Register</legend>
+                <legend>REGISTER</legend>
                 <div>
-                    <label htmlFor="firstName">First Name</label>
-                    <input type="text" name='firstName' id='firstName' />
+                    <label htmlFor="firstName">First Name *</label>
+                    <input className='formInput' type="text" name='firstName' id='firstName' required='require' />
                 </div>
                 <div>
-                    <label htmlFor="lastName">Last Name</label>
-                    <input type="text" name='lastName' id='lastName' />
+                    <label htmlFor="lastName">Last Name *</label>
+                    <input className='formInput' type="text" name='lastName' id='lastName' required='require'/>
                 </div>
                 <div>
-                    <label htmlFor="email">Email</label>
-                    <input type="text" name='email' id='email' />
+                    <label htmlFor="email">Email *</label>
+                    <input className='formInput' type="text" name='email' id='email' required='require'/>
                 </div>
                 <div>
-                    <label htmlFor="password">Password</label>
-                    <input type="password" name='password' id='password' />
+                    <label htmlFor="password">Password *</label>
+                    <input className='formInput' type="password" name='password' id='password' required='require'/>
                 </div>
-                <input className='form-register-button' type='submit' value='Sign In'/>
+                <input className='form-register-button' type='submit' value='Submit' className='submitButton'/>
                 </form>
-                <p>Already have an account? <a>Login.</a></p>
+                <p>Already have an account? <Link to='/login'>Login.</Link></p>
             </section>
         )
     }

@@ -70,10 +70,10 @@ export default class LandingPage extends Component {
         
         let results
         if(comments.length===1){
-            results = '1 recommendation'
+            results = '1 Recommendation'
         }
         else{
-            results = `${comments.length} recommendations`
+            results = `${comments.length} Recommendations`
         }
         
         let commentItems = comments.map(comment=>
@@ -82,7 +82,7 @@ export default class LandingPage extends Component {
 
         return(
             <>
-            <p>{results}</p>
+            <p className='commentsCount'>{results}</p>
             <div>{commentItems}</div>
             </>
         )
@@ -110,9 +110,9 @@ export default class LandingPage extends Component {
     renderDeleteEditButtons=()=>{
         if(this.context.currentRequest.user_id==UserService.getUserToken()){
             return (
-                <div>
-                    <button onClick={this.deleteRequest}>Delete</button>
-                    <button onClick={this.updateRequest}>Edit</button>
+                <div className='editAndDeleteBox'>
+                    <button onClick={this.deleteRequest} className='requestButton'>DELETE</button>
+                    <button onClick={this.updateRequest} className='requestButton editButton'>EDIT</button>
                 </div>
             )
         }
@@ -126,9 +126,24 @@ export default class LandingPage extends Component {
 
             return(
                 <div className='requestInfo'>
-                    <p>{this.context.currentRequest.first_name} {lastInitial}. wants to know the Best Brand For...</p>
                     <h2>{this.context.currentRequest.product}</h2>
-                    <p>Requested in {this.context.currentRequest.category} on {new Date(this.context.currentRequest.date).toLocaleDateString()}</p>
+                    <div className='requestData'>
+                        <div className='iconContainer'>
+                            <i className="fas fa-user"></i>
+                            <i className="fas fa-clock"></i>
+                            <i className="fas fa-store"></i>
+                        </div>
+                        <div className='infoContainer'>
+                            <p>{this.context.currentRequest.first_name} {lastInitial}.</p>
+                            <p>{new Date(this.context.currentRequest.date).toLocaleDateString()}</p>
+                            <p>{this.context.currentRequest.category}</p>
+                        </div>
+                    </div>
+
+                    
+                    
+                    
+
                     <p>{this.context.currentRequest.info}</p>
                     {this.renderDeleteEditButtons()}
                 </div>
@@ -151,7 +166,7 @@ export default class LandingPage extends Component {
             <>
             <section className='indivRequestPage'>
                 <div className='sideBar'>
-                <button className='backButton' onClick={this.props.history.goBack}>Back</button>
+                <button className='backButton' onClick={this.props.history.goBack}>BACK</button>
                 </div>
                 <div className='mainBar'>
                 {this.renderRequest()}

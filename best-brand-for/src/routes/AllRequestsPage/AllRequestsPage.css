@@ -1,9 +1,73 @@
+.allRequestsPage{
+  padding-left:20px;
+  padding-right:20px;
+}
+
 .filterBox{
-    border:1px solid grey;
+    background-color: #fa7d71;
+    border:3px solid #d66a5f;
+    padding:10px;
+}
+
+.filterInputIndiv{
+  display:flex;
+  flex-direction: column;
+  width:50%;
+}
+
+  .filterInput {
+    border: 1px solid black; 
+    width:95%;
   }
   
-  .searchButton, .filterBox button{
-    border: 1px solid grey;
-    padding:5px;
-  }
-  
+
+.inputsDiv {
+  display:flex;
+  padding-top:10px;
+  padding-bottom:10px;
+}
+
+.searchButton{
+  width:80px;
+  background-color:#384a62;
+  color:white;
+  display:flex;
+  justify-content: center;
+  align-items:center;
+  padding:5px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 2px;
+}
+
+.searchButton:hover{
+  background-color: #7496a2;
+  cursor: pointer;
+}
+
+.newRequestButton{
+  width:140px;
+  background-color:#384a62;
+  color:white;
+  display:flex;
+  justify-content: center;
+  align-items:center;
+  padding:5px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 2px;
+}
+
+.newRequestButton:hover{
+  background-color: #7496a2;
+  cursor: pointer;
+}
+
+.or{
+  padding-top:10px;
+  padding-bottom:10px;
+}
+
+.loginLink{
+  color:black;
+}

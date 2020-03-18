@@ -1,25 +1,69 @@
 .loginSection{
-    height:100vh;
     display:flex;
     flex-direction: column;
     align-items:center;
     justify-content: center;
+    background-color: #fa7d71;
+    height:76vh;
   }
+
+  .loginSection p {
+    width:60%;
+    text-align: center;
+  }
+
   
   .loginForm{
-    border:1px solid black;
+    border:3px solid #d66a5f;
     height:50vh;
-    width:50%;
+    width:65%;
     display:flex;
     flex-direction:column;
     align-items:center;
     justify-content:space-evenly;
+    background-color:white;
+    margin-bottom:10px;
+    margin-top:10px;
+    padding:20px;
   }
   
-  .loginForm input{
-    border:1px solid black;
-  }
   
   .loginForm legend{
     font-size:20px;
   }
+
+  .formInput{
+    border: 1px solid black;
+  }
+
+  .submitButton{
+    width:150px;
+    background-color:#384a62;
+    color:white;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    padding:5px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 2px;
+  }
+
+  .loginForm div{
+    display:flex;
+    flex-direction: column;
+    width:100%;
+  }
+
+.submitButton:hover{
+  background-color: #7496a2;
+  cursor: pointer;
+}
+
+.demo{
+  font-size: 11px;
+}
+
+.loginSection a{
+  color:black;
+}

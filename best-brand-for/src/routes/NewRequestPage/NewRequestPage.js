@@ -64,41 +64,41 @@ export default class NewRequestPage extends Component {
             <>
             <section className='newRequestPage'>
                 <div className='sideBar'>
-                <button className='backButton' onClick={this.props.history.goBack}>Back</button>
+                <button className='backButton' onClick={this.props.history.goBack}>BACK</button>
                 </div>
                 <div className='mainBar'>
                 <h2>What are you looking for?</h2>
                 <form className='newRequestForm' onSubmit={this.handleSubmit}>
-                    <div>
-                    <label htmlFor="product">Product</label>
-                    <input type="text" name='product' id='product' />
+                    <div className='inputBox'>
+                        <label htmlFor="product">Product * </label>
+                        <input type="text" name='product' id='product' required='require'/>
                     </div>
-                    <div>
-                    <label htmlFor="category">Category</label>
-                    <select id='category' name='category'>
-                        <option value='none'></option>
-                        <option value='Appliances'>Appliances</option>
-                        <option value='Baby & Kid'>Baby & Kid</option>
-                        <option value='Clothing & Shoes'>Clothing & Shoes</option>
-                        <option value='Entertainment'>Entertainment</option>
-                        <option value='Farm & Garden'>Farm & Garden</option>
-                        <option value='Furniture'>Furniture</option>
-                        <option value='Health & Beauty'>Health & Beauty</option>
-                        <option value='Household'>Household</option>
-                        <option value='Jewelry'>Jewelry</option>
-                        <option value='Materials'>Materials</option>
-                        <option value='Sporting Goods'>Sporting Goods</option>
-                        <option value='Technology'>Technology</option>
-                        <option value='Toys & Games'>Toys & Games</option>
-                        <option value='Transportation'>Transportation</option>
-                        <option value='Other'>Other</option>
-                    </select>
+                    <div className='inputBox'>
+                        <label htmlFor="category">Category * </label>
+                        <select id='category' name='category' required>
+                            <option value=''></option>
+                            <option value='Appliances'>Appliances</option>
+                            <option value='Baby & Kid'>Baby & Kid</option>
+                            <option value='Clothing & Shoes'>Clothing & Shoes</option>
+                            <option value='Entertainment'>Entertainment</option>
+                            <option value='Farm & Garden'>Farm & Garden</option>
+                            <option value='Furniture'>Furniture</option>
+                            <option value='Health & Beauty'>Health & Beauty</option>
+                            <option value='Household'>Household</option>
+                            <option value='Jewelry'>Jewelry</option>
+                            <option value='Materials'>Materials</option>
+                            <option value='Sporting Goods'>Sporting Goods</option>
+                            <option value='Technology'>Technology</option>
+                            <option value='Toys & Games'>Toys & Games</option>
+                            <option value='Transportation'>Transportation</option>
+                            <option value='Other'>Other</option>
+                        </select>
                     </div>
-                    <div>
-                    <label htmlFor="moreInfo">More Info</label>
-                    <input type="text" name='moreInfo' id='moreInfo' />
+                    <div className='inputBox'>
+                        <label htmlFor="moreInfo">More Info *</label>
+                        <textarea rows={10} name='moreInfo' id='moreInfo' required='require' />
                     </div>
-                    <input className='submitRequest' type='submit' value='Submit'/>
+                    <input className='submitRequest' type='submit' value='SUBMIT' className='submitRequestButton'/>
                 </form> 
                 </div>
             </section>

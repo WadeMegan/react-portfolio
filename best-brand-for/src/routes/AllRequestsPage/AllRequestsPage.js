@@ -29,14 +29,13 @@ export default class AllRequestsPage extends Component {
 
         if(!UserService.getUserToken()){
             return(<>
-                <Link to='/login'>Login</Link>
-                <p>To make new request</p>
+                <p><Link className='loginLink' to='/login'>Login</Link> to make a new request.</p>
                 </>
             )
         }
         else{
             return(
-                <Link to='/newrequest'>New Request</Link>
+                <Link to='/newrequest' className='newRequestButton'>NEW REQUEST</Link>
             )
         }
         
@@ -86,10 +85,10 @@ export default class AllRequestsPage extends Component {
         
         let results
         if(requests.length===1){
-            results = '1 result'
+            results = '1 Result'
         }
         else{
-            results = `${requests.length} results`
+            results = `${requests.length} Results`
         }
         
         let requestItems = requests.map(request=>
@@ -98,7 +97,7 @@ export default class AllRequestsPage extends Component {
 
         return(
             <>
-            <p>{results}</p>
+            <p className="resultsCount">{results}</p>
             <div>{requestItems}</div>
             </>
         )
@@ -108,38 +107,40 @@ export default class AllRequestsPage extends Component {
         return(
             <>
             <section className='allRequestsPage'>
-                <h2>All Requests</h2>
+                <h2>ALL REQUESTS</h2>
                 <div className='filterBox'>
                 <h3>Filter</h3>
                 <form className='filterForm' onSubmit={this.handleSubmit}>
-                    <div>
-                    <label htmlFor="keyword">Keyword</label>
-                    <input type="text" name='keyword' id='keyword' />
+                    <div className='inputsDiv'>
+                        <div className='filterInputIndiv'>
+                            <label htmlFor="keyword">Keyword</label>
+                            <input className = 'filterInput' type="text" name='keyword' id='keyword' />
+                        </div>
+                        <div className='filterInputIndiv'>
+                            <label htmlFor="category">Category</label>
+                            <select className = 'filterInput' id='category' name='category'>
+                                <option value='All'>All</option>
+                                <option value='Appliances'>Appliances</option>
+                                <option value='Baby & Kid'>Baby & Kid</option>
+                                <option value='Clothing & Shoes'>Clothing & Shoes</option>
+                                <option value='Entertainment'>Entertainment</option>
+                                <option value='Farm & Garden'>Farm & Garden</option>
+                                <option value='Furniture'>Furniture</option>
+                                <option value='Health & Beauty'>Health & Beauty</option>
+                                <option value='Household'>Household</option>
+                                <option value='Jewelry'>Jewelry</option>
+                                <option value='Materials'>Materials</option>
+                                <option value='Sporting Goods'>Sporting Goods</option>
+                                <option value='Technology'>Technology</option>
+                                <option value='Toys & Games'>Toys & Games</option>
+                                <option value='Transportation'>Transportation</option>
+                                <option value='Other'>Other</option>
+                            </select>
+                        </div>
                     </div>
-                    <div>
-                    <label htmlFor="category">Category</label>
-                    <select id='category' name='category'>
-                        <option value='All'>All</option>
-                        <option value='Appliances'>Appliances</option>
-                        <option value='Baby & Kid'>Baby & Kid</option>
-                        <option value='Clothing & Shoes'>Clothing & Shoes</option>
-                        <option value='Entertainment'>Entertainment</option>
-                        <option value='Farm & Garden'>Farm & Garden</option>
-                        <option value='Furniture'>Furniture</option>
-                        <option value='Health & Beauty'>Health & Beauty</option>
-                        <option value='Household'>Household</option>
-                        <option value='Jewelry'>Jewelry</option>
-                        <option value='Materials'>Materials</option>
-                        <option value='Sporting Goods'>Sporting Goods</option>
-                        <option value='Technology'>Technology</option>
-                        <option value='Toys & Games'>Toys & Games</option>
-                        <option value='Transportation'>Transportation</option>
-                        <option value='Other'>Other</option>
-                    </select>
-                    </div>
-                    <input className='searchButton' type='submit' value='Seach'/>
+                    <input className='searchButton' type='submit' value='SEARCH'/>
                 </form> 
-                <p>Or</p>
+                <p className='or'>Or</p>
                 {this.renderNewRequestButton()}
                 </div>
                 <div className='requestsBox'>

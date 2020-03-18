@@ -6,7 +6,7 @@ export default class RequestItem extends Component {
     
     render(){
         return(
-            <Link to={`/requests/${this.props.request.id}`}>
+            <Link className='requestLink' to={`/requests/${this.props.request.id}`}>
                 <div className='request'>
                     <p>Best Brand For...</p>
                     <h4>{this.props.request.product}</h4>

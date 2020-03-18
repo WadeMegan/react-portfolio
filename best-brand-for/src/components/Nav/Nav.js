@@ -37,8 +37,7 @@ export default class Nav extends Component {
   renderLoginLinks(){
     return(
       <ul>
-        <li><Link to='/login'>Log In</Link></li>
-        <li><Link to='/register'>Register</Link></li>
+        <li><Link to='/login' className='loginButton'>Log In</Link></li>
       </ul>
     )
   }
@@ -48,15 +47,21 @@ export default class Nav extends Component {
     let fName = UserService.getFNameToken().charAt(0).toUpperCase()
     let lName = UserService.getLNameToken().charAt(0).toUpperCase()
 
-    return(
-      <ul>
-        <li><div>{fName}{lName}</div></li>  
-        <li><Link to='/requests/all'>All Requests</Link></li>  
-        <li><Link to='/requests/users'>Your Requests</Link></li>
-        <li><Link onClick={this.handleLogoutClick} to='/'>Logout</Link></li>  
-      </ul>
+    return(<>
+
+      <div className = 'dropdown'>
+          <button className='dropdownButton'>MENU</button>
+          <div className='dropdownContent'> 
+            <Link to='/requests/all'>All Requests</Link> 
+            <Link to='/requests/users'>Your Requests</Link>
+            <Link onClick={this.handleLogoutClick} to='/'>Logout</Link>
+          </div>
+      </div>
+      </>
     )
   }
+
+  /*<p className='userIcon'>{fName}{lName}</p>*/
 
   componentDidMount=()=>{
     //console.log(this.context.user)
@@ -65,7 +70,9 @@ export default class Nav extends Component {
   render(){
         return(
             <nav>
-                <h1>Best Brand For</h1>
+                <h1>BEST BRAND FOR</h1>
+                
+                
                 {TokenService.hasAuthToken()
                 ? this.renderLogoutLinks()
                 : this.renderLoginLinks()}

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-//import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import {Redirect} from 'react-router-dom'
 import './LoginPage.css'
 import RequestListContext from '../../contexts/RequestListContext'
@@ -79,21 +79,21 @@ export default class LoginPage extends Component {
         }
         return(
             <section className='loginSection'>
-                <h1>Best Brand For</h1>
-                <p>Get the advice you need for the products you want</p>
+                <p>Get the advice you need for the products you want.</p>
                 <form className='loginForm' onSubmit={this.handleSubmitJwtAuth}>
-                <legend>Login</legend>
+                <legend>LOGIN</legend>
+                <p className='demo'>To demo, sign in with <br/> email: test@gmail.com <br/> password: password</p>
                 <div>
-                    <label htmlFor="email">Email</label>
-                    <input type="text" name='email' id='email' />
+                    <label htmlFor="email">Email *</label>
+                    <input className='formInput' type="text" name='email' id='email' required='require'/>
                 </div>
                 <div>
-                    <label htmlFor="password">Password</label>
-                    <input type="password" name='password' id='password' />
+                    <label htmlFor="password">Password *</label>
+                    <input className='formInput' type="password" name='password' id='password' required='require'/>
                 </div>
-                <input className='form-register-button' type='submit' value='Sign In'/>
+                <input className='form-register-button' type='submit' value='Submit' className='submitButton'/>
                 </form>
-                <p>New to Best Brand For? <a>Register.</a></p>
+                <p>New to Best Brand For? <Link to='/register'>Register.</Link></p>
             </section>
         )
     }

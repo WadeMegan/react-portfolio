@@ -1,4 +1,18 @@
 .request{
     border:1px solid black;
-    margin:15px;
+    margin:10px;
+    text-decoration: none;
+}
+
+.resultsCount{
+    margin:10px;
+}
+
+.requestLink {
+   text-decoration: none;
+   color:black;
+}
+
+.request:hover{
+    margin:3px;
 }

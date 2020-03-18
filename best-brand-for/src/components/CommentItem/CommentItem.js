@@ -39,9 +39,9 @@ export default class RequestItem extends Component {
     renderDeleteEditButtons=()=>{
         if(this.props.comment.user_id==UserService.getUserToken()){
             return (
-                <div>
-                    <button onClick={this.deleteComment}>Delete</button>
-                    <button onClick={this.updateComment}>Edit</button>
+                <div className='commentButtonBox'>
+                    <button onClick={this.deleteComment} className='commentButton deleteButton'>Delete</button>
+                    <button onClick={this.updateComment} className='commentButton'>Edit</button>
                 </div>
             )
         }
@@ -51,7 +51,11 @@ export default class RequestItem extends Component {
         if(this.state.updating===false){
             return(
                 <div className='comment'>
-                    <h3>{this.props.comment.first_name} {this.props.comment.last_name.charAt(0)}. recommends {this.props.comment.brand}</h3>
+                    <h3>{this.props.comment.brand}</h3>
+                    <div className='commentInfo'>
+                        <i className="fas fa-user"></i>
+                        <p>{this.props.comment.first_name} {this.props.comment.last_name.charAt(0)}.</p>
+                    </div>
                     <p>{this.props.comment.why}</p>
                     {this.renderDeleteEditButtons()}
                 </div>

@@ -1,22 +1,65 @@
 .newRequestPage{
     display:flex;
-    height:80vh;
+    height:76vh;
   }
   
   .sideBar{
     width:20%;
+    padding-left:20px;
   }
   
   .backButton{
-    border: 1px solid grey;
+    width:100%;
+    background-color:#384a62;
+    color:white;
+    display:flex;
+    justify-content: center;
+    align-items:center;
     padding:5px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 2px;
+    border:0px;
+  }
+
+  .backButton:hover{
+    background-color: #7496a2;
+    cursor: pointer;
   }
   
   .mainBar{
     width:80%;
     overflow:scroll;
+    padding-left:20px;
+    padding-right:20px;
   }
   
-  .newRequestForm input{
+  .inputBox {
+    display:flex;
+    flex-direction: column;
+    padding-top:10px;
+  }
+
+  .inputBox input, .inputBox select, .inputBox textarea{
     border:1px solid black;
   }
+
+.submitRequestButton{
+  width:25%;
+  background-color:#384a62;
+  color:white;
+  display:flex;
+  justify-content: center;
+  align-items:center;
+  padding:5px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 2px;
+  margin-top:10px;
+  border:0px;
+}
+
+.submitRequestButton:hover{
+  background-color: #7496a2;
+  cursor: pointer;
+}

@@ -1,25 +1,72 @@
 .indivRequestPage{
     display:flex;
-    height:80vh;
-  }
-  
-  .sideBar{
-    width:20%;
-  }
-  
-  .backButton{
-    border: 1px solid grey;
-    padding:5px;
+    height:76vh;
   }
   
   .mainBar{
-    width:80%;
+
     overflow:scroll;
   }
   
   .comment{
     margin-left:30px;
-    margin-top:20px;
+    margin-top:10px;
     border:1px solid grey;
   }
   
+.requestData{
+  display:flex;
+  margin-top:10px;
+  margin-bottom:10px;
+}
+
+.iconContainer{
+  display:flex;
+  flex-direction:column;
+  line-height:20px;
+}
+
+.iconContainer i{
+  line-height:22px;
+}
+
+.infoContainer{
+  margin-left:10px;
+}
+
+.infoContainer p{
+  line-height:22px;
+}
+
+.requestButton{
+  width:80px;
+  background-color:#384a62;
+  color:white;
+  display:flex;
+  justify-content: center;
+  align-items:center;
+  padding:5px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 2px;
+  margin-top:10px;
+  border:0px;
+}
+
+.requestButton:hover{
+  background-color: #7496a2;
+  cursor: pointer;
+}
+
+.editAndDeleteBox{
+  display:flex;
+}
+
+.editButton{
+  margin-left:10px;
+}
+
+.commentsCount{
+  padding-left:30px;
+  margin-top:10px;
+}

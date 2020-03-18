@@ -25,10 +25,10 @@ export default class UsersRequestsPage extends Component {
         
         let results
         if(requests.length===1){
-            results = '1 result'
+            results = '1 Result'
         }
         else{
-            results = `${requests.length} results`
+            results = `${requests.length} Results`
         }
         
         let requestItems = requests.map(request=>
@@ -37,7 +37,7 @@ export default class UsersRequestsPage extends Component {
 
         return(
             <>
-            <p>{results}</p>
+            <p className="resultsCount">{results}</p>
             <div>{requestItems}</div>
             </>
         )
@@ -47,40 +47,8 @@ export default class UsersRequestsPage extends Component {
         return(
             <>
             <section className='allRequestsPage'>
-                <h2>Your Requests</h2>
-                <div className='filterBox'>
-                <h3>Filter</h3>
-                <form className='filterForm'>
-                    <div>
-                    <label htmlFor="keyword">Keyword</label>
-                    <input type="text" name='keyword' id='keyword' />
-                    </div>
-                    <div>
-                    <label htmlFor="category">Category</label>
-                    <select id='category' name='category'>
-                        <option value='all'>All</option>
-                        <option value='appliances'>Appliances</option>
-                        <option value='baby'>Baby & Kid</option>
-                        <option value='clothing'>Clothing & Shoes</option>
-                        <option value='entertainment'>Entertainment</option>
-                        <option value='farm'>Farm & Garden</option>
-                        <option value='furniture'>Furniture</option>
-                        <option value='health'>Health & Beauty</option>
-                        <option value='household'>Household</option>
-                        <option value='jewelry'>Jewelry</option>
-                        <option value='materials'>Materials</option>
-                        <option value='sporting'>Sporting Goods</option>
-                        <option value='technology'>Technology</option>
-                        <option value='toys'>Toys & Games</option>
-                        <option value='transportation'>Transportation</option>
-                        <option value='other'>Other</option>
-                    </select>
-                    </div>
-                    <input className='searchButton' type='submit' value='Seach'/>
-                </form> 
-                <p>Or</p>
-                <Link to='/newrequest'>New Request</Link> 
-                </div>
+                <h2>YOUR REQUESTS</h2>
+                <Link to='/newrequest' className='newRequestButton'>New Request</Link> 
                 <div className='requestsBox'>
                     {this.renderRequests(this.context.usersList)}
                 </div> 

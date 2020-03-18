@@ -1,0 +1,40 @@
+.commentInfo{
+    display:flex;
+    padding-top:5px;
+    padding-bottom:10px;
+}
+
+.commentInfo p{
+    margin-left:10px;
+}
+
+.commentButton{
+    width:80px;
+    background-color:#384a62;
+    color:white;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    padding:5px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 2px;
+}
+
+.commentButton:hover{
+    background-color: #7496a2;
+    cursor: pointer;
+}
+
+.commentButtonBox{
+    display:flex;
+    padding-top:10px;
+}
+
+.deleteButton{
+    margin-right:10px;
+}
+
+.comment{
+    padding:10px;
+}
