@@ -37,7 +37,7 @@ export default class RequestItem extends Component {
     }
 
     renderDeleteEditButtons=()=>{
-        if(this.props.comment.user_id===UserService.getUserToken()){
+        if(this.props.comment.user_id==UserService.getUserToken()){
             return (
                 <div className='commentButtonBox'>
                     <button onClick={this.deleteComment} className='commentButton deleteButton'>Delete</button>

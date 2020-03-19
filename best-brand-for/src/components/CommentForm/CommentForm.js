@@ -21,7 +21,11 @@ export default class CommentForm extends Component {
         let userId = Number(UserService.getUserToken())
 
         RequestApiService.postNewComment(this.context.currentRequest.id, userId, brand.value, why.value)
-            .then(()=>{this.props.onSubmit()})
+            .then(()=>{
+                brand.value=''
+                why.value=''
+                this.props.onSubmit()
+            })
             .catch(this.context.setError)
     }
     

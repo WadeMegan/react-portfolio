@@ -110,7 +110,8 @@ export default class LandingPage extends Component {
     }
 
     renderDeleteEditButtons=()=>{
-        if(this.context.currentRequest.user_id===UserService.getUserToken()){
+
+        if(this.context.currentRequest.user_id==UserService.getUserToken()){
             return (
                 <div className='editAndDeleteBox'>
                     <button onClick={this.deleteRequest} className='requestButton'>DELETE</button>
