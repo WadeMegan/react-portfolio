@@ -9,11 +9,13 @@ import RegisterPage from '../../routes/RegisterPage/RegisterPage'
 import UsersRequestsPage from '../../routes/UsersRequestsPage/UsersRequestsPage'
 import './App.css'
 import Nav from '../Nav/Nav'
+import PrivateRoute from '../../components/Utils/PrivateRoute'
+import PublicOnlyRoute from '../../components/Utils/PublicOnlyRoute'
 
 class App extends Component {
 
   state = {
-    isLoggedIn: false //will be passed to Nav component to render different links based on logged in or not
+    isLoggedIn: false, //will be passed to Nav component to render different links based on logged in or not
   }
 
   // will be passed to LoginPage as props
@@ -31,21 +33,21 @@ class App extends Component {
       <Nav isLoggedIn={this.state.isLoggedIn}/>
       <main className='App'>
         <Switch>
-          <Route exact path={'/'} component={LandingPage}/>
-          <Route path={'/login'} render={()=> <LoginPage onLogin={this.handleLogin}/>}/>
-          <Route path={'/register'} component={RegisterPage}/>
+          <PublicOnlyRoute exact path={'/'} component={LandingPage}/>
+          <PublicOnlyRoute path={'/login'} render={()=> <LoginPage onLogin={this.handleLogin}/>}/>
+          <PublicOnlyRoute path={'/register'} component={RegisterPage}/>
           <Route exact path={'/requests/all'} component={AllRequestsPage}/>
-          <Route exact path={'/requests/users'} component={UsersRequestsPage}/>
+          <PrivateRoute exact path={'/requests/users'} component={UsersRequestsPage}/>
           <Route path={'/requests/:id'} render={(props)=> <IndividualRequestPage {...props} />}/>
-          <Route path={'/newrequest'} component={NewRequestPage}/>
+          <PrivateRoute path={'/newrequest'} component={NewRequestPage}/>
         </Switch>
       </main>
       <footer>
         <p>Created by Megan Wade</p>
         <ul className='socialLinks'>
-            <li><a href='https://www.linkedin.com/in/megan-wade-909129124/' target='_blank' aria-label='linkedin link'><i className='fab fa-linkedin fa-2x'></i></a></li>
-            <li><a href='mailto:meganwade96@gmail.com' target='_blank' aria-label='email link'><i className='fas fa-envelope-square fa-2x'></i></a></li>
-            <li><a href='https://github.com/WadeMegan' target='_blank' aria-label='github link'><i className='fab fa-github-square fa-2x'></i></a></li>
+            <li><a href='https://www.linkedin.com/in/megan-wade-909129124/' target='_blank' rel="noopener noreferrer" aria-label='linkedin link'><i className='fab fa-linkedin fa-2x'></i></a></li>
+            <li><a href='mailto:meganwade96@gmail.com' target='_blank' rel="noopener noreferrer" aria-label='email link'><i className='fas fa-envelope-square fa-2x'></i></a></li>
+            <li><a href='https://github.com/WadeMegan' target='_blank' rel="noopener noreferrer" aria-label='github link'><i className='fab fa-github-square fa-2x'></i></a></li>
         </ul>
       </footer>
       </>

@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match with snapshot 1`] = `
+<section
+  className="loginSection"
+>
+  <p>
+    Get the advice you need for the products you want.
+  </p>
+  <form
+    className="loginForm"
+    onSubmit={[Function]}
+  >
+    <legend>
+      LOGIN
+    </legend>
+    <p
+      className="demo"
+    >
+      To demo, sign in with 
+      <br />
+       email: test@gmail.com 
+      <br />
+       password: password
+    </p>
+    <div
+      id="error"
+      role="alert"
+    />
+    <div
+      className="loginInputBox"
+    >
+      <label
+        htmlFor="email"
+      >
+        Email *
+      </label>
+      <input
+        className="formInput"
+        id="email"
+        name="email"
+        required="require"
+        type="text"
+      />
+    </div>
+    <div
+      className="loginInputBox"
+    >
+      <label
+        htmlFor="password"
+      >
+        Password *
+      </label>
+      <input
+        className="formInput"
+        id="password"
+        name="password"
+        required="require"
+        type="password"
+      />
+    </div>
+    <input
+      className="submitButton"
+      type="submit"
+      value="Submit"
+    />
+  </form>
+  <p>
+    New to Best Brand For? 
+    <a
+      href="/register"
+      onClick={[Function]}
+    >
+      Register.
+    </a>
+  </p>
+</section>
+`;

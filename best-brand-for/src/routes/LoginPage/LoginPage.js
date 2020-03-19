@@ -7,12 +7,14 @@ import AuthApiService from '../../services/auth-api-service'
 import TokenService from '../../services/token-service'
 import UserService from '../../services/user-service'
 import RequestApiService from '../../services/request-api-services'
+import Error from '../../components/Error/Error'
 
 export default class LoginPage extends Component {
     static contextType = RequestListContext
 
     state = {
-        toRequests: false
+        toRequests: false,
+        error: null
     }
 
     // upon successful login ... 
@@ -26,9 +28,9 @@ export default class LoginPage extends Component {
     handleSubmitJwtAuth = ev => {
         ev.preventDefault()
         
-        /*this.setState({
+        this.setState({
             error: null
-        })*/
+        })
 
         const {email,password} = ev.target
 
@@ -52,9 +54,9 @@ export default class LoginPage extends Component {
                         this.context.setRequestList(res)
                         RequestApiService.getRequestsByUserId(UserService.getUserToken())
                             .then(this.context.setUsersList)
-                            .catch()
+                            .catch(this.context.setError)
                     })
-                    .catch()
+                    .catch(this.context.setError)
                 
                     this.onLoginSuccess(res.user)      
             })
@@ -64,37 +66,46 @@ export default class LoginPage extends Component {
                     this.setState({error:res.error})
                 }
                 // if other error, set context error to show error boundary
-                /*else {
+                else {
                     this.context.setError(res.error)
-                }*/        
+                }     
             })
     }   
     
+    componentDidMount=()=>{
+        this.context.clearError()
+    }
     
     
     render(){
+        const {error}=this.state
         // upon successful login, redirect to your plants page
         if(this.state.toRequests===true){
             return <Redirect to='/requests/all'/>
         }
         return(
+            <Error>
             <section className='loginSection'>
                 <p>Get the advice you need for the products you want.</p>
                 <form className='loginForm' onSubmit={this.handleSubmitJwtAuth}>
                 <legend>LOGIN</legend>
                 <p className='demo'>To demo, sign in with <br/> email: test@gmail.com <br/> password: password</p>
-                <div>
+                <div role='alert' id='error'>
+                    {error && <p>{error}</p>}
+                </div>
+                <div className='loginInputBox'>
                     <label htmlFor="email">Email *</label>
                     <input className='formInput' type="text" name='email' id='email' required='require'/>
                 </div>
-                <div>
+                <div className='loginInputBox'>
                     <label htmlFor="password">Password *</label>
                     <input className='formInput' type="password" name='password' id='password' required='require'/>
                 </div>
-                <input className='form-register-button' type='submit' value='Submit' className='submitButton'/>
+                <input type='submit' value='Submit' className='submitButton'/>
                 </form>
                 <p>New to Best Brand For? <Link to='/register'>Register.</Link></p>
             </section>
+            </Error>
         )
     }
 }

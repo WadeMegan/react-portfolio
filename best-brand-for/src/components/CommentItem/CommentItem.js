@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import './CommentItem.css'
 import RequestListContext from '../../contexts/RequestListContext'
 import UserService from '../../services/user-service'
 import RequestApiService from '../../services/request-api-services'
 import UpdateComment from '../../components/UpdateComment/UpdateComment'
+import Error from '../../components/Error/Error'
 
 export default class RequestItem extends Component {
     static contextType = RequestListContext
@@ -19,9 +19,9 @@ export default class RequestItem extends Component {
             .then(res=>{
                 RequestApiService.getCommentsByRequestId(this.context.currentRequest.id)
                     .then(this.context.setCurrentComments)
-                    .catch()
+                    .catch(this.context.setError)
             })
-            .catch()
+            .catch(this.context.setError)
     }
     
     updateComment=()=>{
@@ -37,7 +37,7 @@ export default class RequestItem extends Component {
     }
 
     renderDeleteEditButtons=()=>{
-        if(this.props.comment.user_id==UserService.getUserToken()){
+        if(this.props.comment.user_id===UserService.getUserToken()){
             return (
                 <div className='commentButtonBox'>
                     <button onClick={this.deleteComment} className='commentButton deleteButton'>Delete</button>
@@ -63,15 +63,19 @@ export default class RequestItem extends Component {
         }
         else{
             return(
-                < UpdateComment comment={this.props.comment} onUpdateSuccess={this.onUpdateSuccess}/>
+                <UpdateComment comment={this.props.comment} onUpdateSuccess={this.onUpdateSuccess}/>
             )
         }
     }
+
+    componentDidMount=()=>{
+        this.context.clearError()
+    }
     
     render(){
-        return(<>
+        return(<Error>
             {this.renderComment()}
-            </>
+            </Error>
         )
     }
 }

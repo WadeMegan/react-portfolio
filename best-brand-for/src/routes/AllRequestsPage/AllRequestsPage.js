@@ -5,6 +5,7 @@ import RequestApiService from '../../services/request-api-services'
 import RequestListContext from '../../contexts/RequestListContext'
 import RequestItem from '../../components/RequestItem/RequestItem'
 import UserService from '../../services/user-service'
+import Error from '../../components/Error/Error'
 
 export default class AllRequestsPage extends Component {
     static contextType = RequestListContext
@@ -16,10 +17,13 @@ export default class AllRequestsPage extends Component {
     //if requestList is empty, make get request for all requests
     //important for refreshing
     componentDidMount(){
+
+        this.context.clearError()
+
         if(!this.context.requestList.length){
             RequestApiService.getAllRequests()
                 .then(this.context.setRequestList)
-                .catch()
+                .catch(this.context.setError)
         }
     }
 
@@ -70,7 +74,7 @@ export default class AllRequestsPage extends Component {
                     this.context.setRequestList(reqArrCopy)
 
                 })
-                .catch()
+                .catch(this.context.setError)
         
         
         
@@ -105,7 +109,7 @@ export default class AllRequestsPage extends Component {
     
     render(){
         return(
-            <>
+            <Error>
             <section className='allRequestsPage'>
                 <h2>ALL REQUESTS</h2>
                 <div className='filterBox'>
@@ -147,7 +151,7 @@ export default class AllRequestsPage extends Component {
                     {this.renderRequests(this.context.requestList)}
                 </div> 
             </section>
-            </>
+            </Error>
         )
     }
 }

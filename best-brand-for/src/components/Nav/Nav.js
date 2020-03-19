@@ -44,13 +44,11 @@ export default class Nav extends Component {
 
   renderLogoutLinks(){
 
-    let fName = UserService.getFNameToken().charAt(0).toUpperCase()
-    let lName = UserService.getLNameToken().charAt(0).toUpperCase()
 
     return(<>
 
       <div className = 'dropdown'>
-          <button className='dropdownButton'>MENU</button>
+          <button className='dropdownButton'>MENU </button>
           <div className='dropdownContent'> 
             <Link to='/requests/all'>All Requests</Link> 
             <Link to='/requests/users'>Your Requests</Link>

@@ -8,6 +8,7 @@ import CommentItem from '../../components/CommentItem/CommentItem'
 import UserService from '../../services/user-service'
 import {Redirect} from 'react-router-dom'
 import UpdateRequest from '../../components/UpdateRequest/UpdateRequest'
+import Error from '../../components/Error/Error'
 
 export default class LandingPage extends Component {
     static contextType = RequestListContext
@@ -40,13 +41,15 @@ export default class LandingPage extends Component {
           commentAdded: true
         })
 
+        
+
         RequestApiService.getRequestById(this.props.match.params.id)
             .then(this.context.setCurrentRequest)
-            .catch()
+            .catch(this.context.setError)
 
         RequestApiService.getCommentsByRequestId(this.props.match.params.id)
             .then(this.context.setCurrentComments)
-            .catch()
+            .catch(this.context.setError)
 
 
       }
@@ -55,14 +58,13 @@ export default class LandingPage extends Component {
 
     componentWillMount=()=>{
     
-        console.log('will mount ran')
         RequestApiService.getRequestById(this.props.match.params.id)
             .then(this.context.setCurrentRequest)
-            .catch()
+            .catch(this.context.setError)
 
         RequestApiService.getCommentsByRequestId(this.props.match.params.id)
             .then(this.context.setCurrentComments)
-            .catch()
+            .catch(this.context.setError)
         
     }
 
@@ -94,10 +96,10 @@ export default class LandingPage extends Component {
             .then(res=>{
                 RequestApiService.getRequestsByUserId(UserService.getUserToken())
                     .then(this.context.setUsersList)
-                    .catch()
+                    .catch(this.context.setError)
                 this.onDeleteSuccess()
             })
-            .catch()
+            .catch(this.context.setError)
     }
 
     updateRequest=()=>{
@@ -108,7 +110,7 @@ export default class LandingPage extends Component {
     }
 
     renderDeleteEditButtons=()=>{
-        if(this.context.currentRequest.user_id==UserService.getUserToken()){
+        if(this.context.currentRequest.user_id===UserService.getUserToken()){
             return (
                 <div className='editAndDeleteBox'>
                     <button onClick={this.deleteRequest} className='requestButton'>DELETE</button>
@@ -122,7 +124,6 @@ export default class LandingPage extends Component {
         if(this.state.updating===false){
             let lastName = this.context.currentRequest.last_name
             let lastInitial = new String(lastName).charAt(0)
-            console.log(lastInitial)
 
             return(
                 <div className='requestInfo'>
@@ -155,7 +156,13 @@ export default class LandingPage extends Component {
             )
         }
     }
+
+    componentDidMount=()=>{
+        this.context.clearError()
+
+    }
     
+
     render(){
         // upon successful delete, redirect to your users requests
         if(this.state.toRequests===true){
@@ -163,7 +170,7 @@ export default class LandingPage extends Component {
         }
         //console.log(this.context.currentComments)
         return(
-            <>
+            <Error>
             <section className='indivRequestPage'>
                 <div className='sideBar'>
                 <button className='backButton' onClick={this.props.history.goBack}>BACK</button>
@@ -178,7 +185,7 @@ export default class LandingPage extends Component {
                 </div>
                 </div>
             </section>
-            </>
+            </Error>
         )
     }
 }

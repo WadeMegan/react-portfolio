@@ -4,8 +4,7 @@ import './NewRequestPage.css'
 import RequestApiService from '../../services/request-api-services'
 import UserService from '../../services/user-service'
 import RequestListContext from '../../contexts/RequestListContext'
-import { BrowserRouter } from 'react-router-dom'
-
+import Error from '../../components/Error/Error'
 
 export default class NewRequestPage extends Component {
     static contextType = RequestListContext
@@ -38,7 +37,7 @@ export default class NewRequestPage extends Component {
         const { product, category, moreInfo } = ev.target
 
         //console.log(product.value)
-        //this.setState({ error: null })
+        this.setState({ error: null })
 
         let userId = UserService.getUserToken()
         // ^ should be the id of whoever is logged in
@@ -55,13 +54,17 @@ export default class NewRequestPage extends Component {
                     .catch()
                 this.onSubmitSuccess()
             })
-            .catch(/* add validation here for errors*/)
+            .catch(this.context.setError)
+    }
+
+    componentDidMount =()=>{
+        this.context.clearError()
     }
     
     
     render(){
         return(
-            <>
+            <Error>
             <section className='newRequestPage'>
                 <div className='sideBar'>
                 <button className='backButton' onClick={this.props.history.goBack}>BACK</button>
@@ -98,11 +101,11 @@ export default class NewRequestPage extends Component {
                         <label htmlFor="moreInfo">More Info *</label>
                         <textarea rows={10} name='moreInfo' id='moreInfo' required='require' />
                     </div>
-                    <input className='submitRequest' type='submit' value='SUBMIT' className='submitRequestButton'/>
+                    <input className='submitRequest submitRequestButton' type='submit' value='SUBMIT'/>
                 </form> 
                 </div>
             </section>
-            </>
+            </Error>
         )
     }
 }

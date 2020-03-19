@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match with snapshot 1`] = `
+<section
+  className="allRequestsPage"
+>
+  <h2>
+    YOUR REQUESTS
+  </h2>
+  <a
+    className="newRequestButton"
+    href="/newrequest"
+    onClick={[Function]}
+  >
+    New Request
+  </a>
+  <div
+    className="requestsBox"
+  >
+    <p
+      className="resultsCount"
+    >
+      0 Results
+    </p>
+    <div />
+  </div>
+</section>
+`;

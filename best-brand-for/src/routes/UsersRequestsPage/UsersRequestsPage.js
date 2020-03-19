@@ -4,7 +4,7 @@ import RequestApiService from '../../services/request-api-services'
 import RequestListContext from '../../contexts/RequestListContext'
 import RequestItem from '../../components/RequestItem/RequestItem'
 import UserService from '../../services/user-service'
-
+import Error from '../../components/Error/Error'
 
 
 export default class UsersRequestsPage extends Component {
@@ -12,12 +12,12 @@ export default class UsersRequestsPage extends Component {
 
     //if requestList is empty, make get request for all requests
     //important for refreshing
-    componentDidMount(){
+    componentWillMount=()=>{
         //console.log(this.context.usersList)
         if(!this.context.usersList.length){
             RequestApiService.getRequestsByUserId(UserService.getUserToken())
                 .then(this.context.setUsersList)
-                .catch()
+                .catch(this.context.setError)
         }
     }
 
@@ -42,10 +42,14 @@ export default class UsersRequestsPage extends Component {
             </>
         )
     }
+
+    componentDidMount=()=>{
+        this.context.clearError()
+    }
     
     render(){
         return(
-            <>
+            <Error>
             <section className='allRequestsPage'>
                 <h2>YOUR REQUESTS</h2>
                 <Link to='/newrequest' className='newRequestButton'>New Request</Link> 
@@ -53,7 +57,7 @@ export default class UsersRequestsPage extends Component {
                     {this.renderRequests(this.context.usersList)}
                 </div> 
             </section>
-            </>
+            </Error>
         )
     }
 }

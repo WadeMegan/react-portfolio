@@ -2,10 +2,11 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import './CommentForm.css'
 import UserService from '../../services/user-service'
-import TokenService from '../../services/token-service'
 import RequestListContext from '../../contexts/RequestListContext'
 //import RequestListContext from '../../contexts/RequestListContext'
 import RequestApiService from '../../services/request-api-services'
+import Error from '../../components/Error/Error'
+
 
 export default class CommentForm extends Component {
 
@@ -21,7 +22,11 @@ export default class CommentForm extends Component {
 
         RequestApiService.postNewComment(this.context.currentRequest.id, userId, brand.value, why.value)
             .then(()=>{this.props.onSubmit()})
-            .catch(/* add validation here for errors*/)
+            .catch(this.context.setError)
+    }
+    
+    componentDidMount=()=>{
+        this.context.clearError()
     }
 
     renderCommentForm=()=>{
@@ -36,18 +41,20 @@ export default class CommentForm extends Component {
         }
         else{
             return(
+                <Error>
                 <form className='comment commentForm' onSubmit={this.handleSubmit}>
                     <legend>Got a brand you're passionate about?</legend>
                     <div>
                         <label htmlFor="brand">Brand *</label>
-                        <input className='inputBox' type="text" name='brand' id='brand' required='require'/>
+                        <input className='inputArea' type="text" name='brand' id='brand' required='require'/>
                     </div>
                     <div>
                         <label htmlFor="why">Why? *</label>
-                        <textarea className='inputBox' rows={3} type="text" name='why' id='why' required='require'/>
+                        <textarea className='inputArea' rows={3} type="text" name='why' id='why' required='require'/>
                     </div>
                     <input className='submitComment' type='submit' value='Submit'/>
                 </form> 
+                </Error>
             )
         }
         

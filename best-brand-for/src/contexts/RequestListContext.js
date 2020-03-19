@@ -17,6 +17,11 @@ const RequestListContext = React.createContext({
     currentComments: [],
     setCurrentComments: ()=>{},
 
+    //error handling
+    error: null,
+    setError: ()=>{},
+    clearError: ()=>{},
+
 })
 
 export default RequestListContext
@@ -27,6 +32,7 @@ export class RequestListProvider extends Component {
         currentRequest: {},
         usersList: [],
         currentComments: [],
+        error: null,
     }
 
     setRequestList = requestList => {
@@ -53,6 +59,14 @@ export class RequestListProvider extends Component {
         })
     }
 
+    setError = error => {
+        console.error(error)
+        this.setState({ error })
+    }
+
+    clearError = () => {
+        this.setState({ error: null })
+    }
 
     render(){
         const value = {
@@ -64,6 +78,9 @@ export class RequestListProvider extends Component {
             setUsersList: this.setUsersList,
             currentComments: this.state.currentComments,
             setCurrentComments: this.setCurrentComments,
+            error: this.state.error,
+            setError: this.setError,
+            clearError: this.clearError,
         }
 
         return (
