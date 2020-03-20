@@ -10,7 +10,7 @@ exports[`should match with snapshot 1`] = `
     <button
       className="backButton"
     >
-      BACK
+      Back
     </button>
   </div>
   <div
@@ -32,6 +32,7 @@ exports[`should match with snapshot 1`] = `
           Product * 
         </label>
         <input
+          className="newReqInput"
           id="product"
           name="product"
           required="require"
@@ -47,13 +48,16 @@ exports[`should match with snapshot 1`] = `
           Category * 
         </label>
         <select
+          className="newReqInput"
           id="category"
           name="category"
           required={true}
         >
           <option
             value=""
-          />
+          >
+             
+          </option>
           <option
             value="Appliances"
           >
@@ -140,6 +144,7 @@ exports[`should match with snapshot 1`] = `
           More Info *
         </label>
         <textarea
+          className="newReqInput"
           id="moreInfo"
           name="moreInfo"
           required="require"
@@ -149,7 +154,7 @@ exports[`should match with snapshot 1`] = `
       <input
         className="submitRequest submitRequestButton"
         type="submit"
-        value="SUBMIT"
+        value="Submit"
       />
     </form>
   </div>

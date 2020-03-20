@@ -4,83 +4,98 @@ exports[`should match with snapshot 1`] = `
 <section
   className="loginSection"
 >
-  <p>
+  <p
+    className="outsideFormP"
+  >
     Get the advice you need for the products you want.
   </p>
-  <form
+  <div
     className="loginForm"
-    onSubmit={[Function]}
   >
-    <legend>
+    <h2>
       REGISTER
-    </legend>
-    <div
-      id="error"
-      role="alert"
-    />
-    <div>
-      <label
-        htmlFor="firstName"
-      >
-        First Name *
-      </label>
-      <input
-        className="formInput"
-        id="firstName"
-        name="firstName"
-        required="require"
-        type="text"
+    </h2>
+    <form
+      onSubmit={[Function]}
+    >
+      <div
+        id="error"
+        role="alert"
       />
-    </div>
-    <div>
-      <label
-        htmlFor="lastName"
+      <div
+        className="loginInputBox"
       >
-        Last Name *
-      </label>
-      <input
-        className="formInput"
-        id="lastName"
-        name="lastName"
-        required="require"
-        type="text"
-      />
-    </div>
-    <div>
-      <label
-        htmlFor="email"
+        <label
+          htmlFor="firstName"
+        >
+          First Name *
+        </label>
+        <input
+          className="formInput"
+          id="firstName"
+          name="firstName"
+          required="require"
+          type="text"
+        />
+      </div>
+      <div
+        className="loginInputBox"
       >
-        Email *
-      </label>
-      <input
-        className="formInput"
-        id="email"
-        name="email"
-        required="require"
-        type="text"
-      />
-    </div>
-    <div>
-      <label
-        htmlFor="password"
+        <label
+          htmlFor="lastName"
+        >
+          Last Name *
+        </label>
+        <input
+          className="formInput"
+          id="lastName"
+          name="lastName"
+          required="require"
+          type="text"
+        />
+      </div>
+      <div
+        className="loginInputBox"
       >
-        Password *
-      </label>
+        <label
+          htmlFor="email"
+        >
+          Email *
+        </label>
+        <input
+          className="formInput"
+          id="email"
+          name="email"
+          required="require"
+          type="text"
+        />
+      </div>
+      <div
+        className="loginInputBox"
+      >
+        <label
+          htmlFor="password"
+        >
+          Password *
+        </label>
+        <input
+          className="formInput"
+          id="password"
+          name="password"
+          required="require"
+          type="password"
+        />
+      </div>
       <input
-        className="formInput"
-        id="password"
-        name="password"
-        required="require"
-        type="password"
+        className="submitButton"
+        type="submit"
+        value="Submit"
       />
-    </div>
-    <input
-      className="submitButton"
-      type="submit"
-      value="Submit"
-    />
-  </form>
-  <p>
+    </form>
+  </div>
+  <p
+    className="outsideFormP"
+  >
     Already have an account? 
     <a
       href="/login"
