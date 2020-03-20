@@ -31,8 +31,8 @@ nav ul li a, .dropdownButton {
   text-decoration: none;
   color:white;
   width:70px;
-  border:1px solid #fa7d71;
-    color:#fa7d71;
+  border:1px solid white;
+    color:white;
     display:flex;
     justify-content: center;
     align-items:center;
@@ -46,6 +46,7 @@ nav ul li a, .dropdownButton {
 
 nav ul li a:hover, .dropdown:hover .dropdownButton{
   background-color: #fa7d71;
+  border:1px solid #fa7d71;
   color:#384a62;
 }
 
