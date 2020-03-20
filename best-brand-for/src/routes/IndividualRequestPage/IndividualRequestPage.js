@@ -88,9 +88,19 @@ export default class IndividualRequestPage extends Component {
     deleteRequest=()=>{
         RequestApiService.deleteRequest(this.context.currentRequest.id)
             .then(res=>{
-                RequestApiService.getRequestsByUserId(UserService.getUserToken())
-                    .then(this.context.setUsersList)
+                RequestApiService.getAllRequests()
+                    .then(res=>{
+                        this.context.setRequestList(res)
+                        //GET user's requests
+                        RequestApiService.getRequestsByUserId(UserService.getUserToken())
+                            .then(this.context.setUsersList)
+                            .catch(this.context.setError)
+                    })
                     .catch(this.context.setError)
+                
+                /*RequestApiService.getRequestsByUserId(UserService.getUserToken())
+                    .then(this.context.setUsersList)
+                    .catch(this.context.setError)*/
                 this.onDeleteSuccess()
             })
             .catch(this.context.setError)
