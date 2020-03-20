@@ -47,7 +47,7 @@ Array [
               href="/register"
               onClick={[Function]}
             >
-              REGISTER
+              Register
             </a>
           </div>
         </div>
@@ -66,8 +66,19 @@ Array [
           href="/requests/all"
           onClick={[Function]}
         >
-          SEE EXISTING REQUESTS
+          See Existing Requests
         </a>
+        <p>
+          Or, 
+          <a
+            className="signinLink"
+            href="/login"
+            onClick={[Function]}
+          >
+            go to login page
+          </a>
+           to find demo information.
+        </p>
       </div>
       <div
         className="shortContainer"

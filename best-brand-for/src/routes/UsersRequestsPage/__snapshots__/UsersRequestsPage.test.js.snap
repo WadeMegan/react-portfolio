@@ -4,16 +4,20 @@ exports[`should match with snapshot 1`] = `
 <section
   className="allRequestsPage"
 >
-  <h2>
-    YOUR REQUESTS
-  </h2>
-  <a
-    className="newRequestButton"
-    href="/newrequest"
-    onClick={[Function]}
+  <div
+    className="filterBox filterBoxUsers"
   >
-    New Request
-  </a>
+    <h2>
+      YOUR REQUESTS
+    </h2>
+    <a
+      className="newRequestButtonUsers"
+      href="/newrequest"
+      onClick={[Function]}
+    >
+      New Request
+    </a>
+  </div>
   <div
     className="requestsBox"
   >

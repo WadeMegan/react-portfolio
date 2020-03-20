@@ -4,68 +4,75 @@ exports[`should match with snapshot 1`] = `
 <section
   className="loginSection"
 >
-  <p>
+  <p
+    className="outsideFormP"
+  >
     Get the advice you need for the products you want.
   </p>
-  <form
+  <div
     className="loginForm"
-    onSubmit={[Function]}
   >
-    <legend>
+    <h2>
       LOGIN
-    </legend>
-    <p
-      className="demo"
+    </h2>
+    <form
+      onSubmit={[Function]}
     >
-      To demo, sign in with 
-      <br />
-       email: test@gmail.com 
-      <br />
-       password: password
-    </p>
-    <div
-      id="error"
-      role="alert"
-    />
-    <div
-      className="loginInputBox"
-    >
-      <label
-        htmlFor="email"
-      >
-        Email *
-      </label>
-      <input
-        className="formInput"
-        id="email"
-        name="email"
-        required="require"
-        type="text"
+      <div
+        id="error"
+        role="alert"
       />
-    </div>
-    <div
-      className="loginInputBox"
-    >
-      <label
-        htmlFor="password"
+      <p
+        className="demo"
       >
-        Password *
-      </label>
+        To demo, use 
+        <br />
+         email: test@gmail.com 
+        <br />
+         password: password
+      </p>
+      <div
+        className="loginInputBox"
+      >
+        <label
+          htmlFor="email"
+        >
+          Email *
+        </label>
+        <input
+          className="formInput"
+          id="email"
+          name="email"
+          required="require"
+          type="text"
+        />
+      </div>
+      <div
+        className="loginInputBox"
+      >
+        <label
+          htmlFor="password"
+        >
+          Password *
+        </label>
+        <input
+          className="formInput"
+          id="password"
+          name="password"
+          required="require"
+          type="password"
+        />
+      </div>
       <input
-        className="formInput"
-        id="password"
-        name="password"
-        required="require"
-        type="password"
+        className="submitButton"
+        type="submit"
+        value="Submit"
       />
-    </div>
-    <input
-      className="submitButton"
-      type="submit"
-      value="Submit"
-    />
-  </form>
-  <p>
+    </form>
+  </div>
+  <p
+    className="outsideFormP"
+  >
     New to Best Brand For? 
     <a
       href="/register"

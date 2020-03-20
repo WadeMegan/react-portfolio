@@ -11,7 +11,7 @@ exports[`should match with snapshot 1`] = `
       className="backButton"
       onClick={[Function]}
     >
-      BACK
+      Back
     </button>
   </div>
   <div
@@ -52,6 +52,22 @@ exports[`should match with snapshot 1`] = `
         </div>
       </div>
       <p />
+      <div
+        className="editAndDeleteBox"
+      >
+        <button
+          className="deleteButton"
+          onClick={[Function]}
+        >
+          Delete
+        </button>
+        <button
+          className="editButton"
+          onClick={[Function]}
+        >
+          Edit
+        </button>
+      </div>
     </div>
     <div
       className="commentSection"
