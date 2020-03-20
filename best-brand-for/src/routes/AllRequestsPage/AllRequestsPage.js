@@ -33,13 +33,13 @@ export default class AllRequestsPage extends Component {
 
         if(!UserService.getUserToken()){
             return(<>
-                <p><Link className='loginLink' to='/login'>Login</Link> to make a new request.</p>
+                <p>Or, <Link className='loginLink' to='/login'>login</Link> to make a new request.</p>
                 </>
             )
         }
         else{
             return(
-                <Link to='/newrequest' className='newRequestButton'>NEW REQUEST</Link>
+                <Link to='/newrequest' className='newRequestButton'>New Request</Link>
             )
         }
         
@@ -111,41 +111,44 @@ export default class AllRequestsPage extends Component {
         return(
             <Error>
             <section className='allRequestsPage'>
-                <h2>ALL REQUESTS</h2>
                 <div className='filterBox'>
-                <h3>Filter</h3>
-                <form className='filterForm' onSubmit={this.handleSubmit}>
-                    <div className='inputsDiv'>
-                        <div className='filterInputIndiv'>
-                            <label htmlFor="keyword">Keyword</label>
-                            <input className = 'filterInput' type="text" name='keyword' id='keyword' />
+                    <h2>ALL REQUESTS</h2>
+                    <div className='filterForm'>
+                    <p>Filter requests:</p>
+                    <form onSubmit={this.handleSubmit}>
+                        <div className='inputsDiv'>
+                            <div className='filterInputIndiv'>
+                                <label htmlFor="keyword">Keyword</label>
+                                <input className = 'filterInput' type="text" name='keyword' id='keyword' />
+                            </div>
+                            <div className='filterInputIndiv'>
+                                <label htmlFor="category">Category</label>
+                                <select className = 'filterInput' id='category' name='category'>
+                                    <option value='All'>All</option>
+                                    <option value='Appliances'>Appliances</option>
+                                    <option value='Baby & Kid'>Baby & Kid</option>
+                                    <option value='Clothing & Shoes'>Clothing & Shoes</option>
+                                    <option value='Entertainment'>Entertainment</option>
+                                    <option value='Farm & Garden'>Farm & Garden</option>
+                                    <option value='Furniture'>Furniture</option>
+                                    <option value='Health & Beauty'>Health & Beauty</option>
+                                    <option value='Household'>Household</option>
+                                    <option value='Jewelry'>Jewelry</option>
+                                    <option value='Materials'>Materials</option>
+                                    <option value='Sporting Goods'>Sporting Goods</option>
+                                    <option value='Technology'>Technology</option>
+                                    <option value='Toys & Games'>Toys & Games</option>
+                                    <option value='Transportation'>Transportation</option>
+                                    <option value='Other'>Other</option>
+                                </select>
+                            </div>
                         </div>
-                        <div className='filterInputIndiv'>
-                            <label htmlFor="category">Category</label>
-                            <select className = 'filterInput' id='category' name='category'>
-                                <option value='All'>All</option>
-                                <option value='Appliances'>Appliances</option>
-                                <option value='Baby & Kid'>Baby & Kid</option>
-                                <option value='Clothing & Shoes'>Clothing & Shoes</option>
-                                <option value='Entertainment'>Entertainment</option>
-                                <option value='Farm & Garden'>Farm & Garden</option>
-                                <option value='Furniture'>Furniture</option>
-                                <option value='Health & Beauty'>Health & Beauty</option>
-                                <option value='Household'>Household</option>
-                                <option value='Jewelry'>Jewelry</option>
-                                <option value='Materials'>Materials</option>
-                                <option value='Sporting Goods'>Sporting Goods</option>
-                                <option value='Technology'>Technology</option>
-                                <option value='Toys & Games'>Toys & Games</option>
-                                <option value='Transportation'>Transportation</option>
-                                <option value='Other'>Other</option>
-                            </select>
+                        <div className='buttonsContainer'>
+                            <input className='searchButton' type='submit' value='Search'/>
+                            {this.renderNewRequestButton()}
                         </div>
+                    </form> 
                     </div>
-                    <input className='searchButton' type='submit' value='SEARCH'/>
-                </form> 
-                <p className='or'>Or</p>
-                {this.renderNewRequestButton()}
                 </div>
                 <div className='requestsBox'>
                     {this.renderRequests(this.context.requestList)}

@@ -2,9 +2,16 @@
     display:flex;
     height:76vh;
   }
+
+  .requestInfo{
+    background-color: #f5d8c6;
+    border-radius:2px;
+    padding: 10px;
+    margin-bottom:20px;
+  }
   
   .mainBar{
-
+    padding-bottom:20px;
     overflow:scroll;
   }
   
@@ -38,7 +45,7 @@
   line-height:22px;
 }
 
-.requestButton{
+.deleteButton{
   width:80px;
   background-color:#384a62;
   color:white;
@@ -53,20 +60,44 @@
   border:0px;
 }
 
-.requestButton:hover{
+.deleteButton:hover{
   background-color: #7496a2;
   cursor: pointer;
 }
 
 .editAndDeleteBox{
   display:flex;
+  justify-content: space-between;
 }
 
-.editButton{
-  margin-left:10px;
+.editAndDeleteBox button{
+  width:48%;
 }
 
 .commentsCount{
   padding-left:30px;
   margin-top:10px;
 }
+
+.editButton{
+  margin-top:10px;
+  width:140px;
+  border:1px solid #384a62;
+  color:#384a62;
+  display:flex;
+  justify-content: center;
+  align-items:center;
+  padding:5px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 2px;
+  background-color:#f5d8c6;
+}
+
+.editButton:hover{
+  background-color: #384a62;
+  color:white;
+  cursor: pointer;
+}
+
+

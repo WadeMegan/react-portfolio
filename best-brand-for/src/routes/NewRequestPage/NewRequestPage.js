@@ -67,19 +67,19 @@ export default class NewRequestPage extends Component {
             <Error>
             <section className='newRequestPage'>
                 <div className='sideBar'>
-                <button className='backButton' onClick={this.props.history.goBack}>BACK</button>
+                <button className='backButton' onClick={this.props.history.goBack}>Back</button>
                 </div>
                 <div className='mainBar'>
                 <h2>What are you looking for?</h2>
                 <form className='newRequestForm' onSubmit={this.handleSubmit}>
                     <div className='inputBox'>
                         <label htmlFor="product">Product * </label>
-                        <input type="text" name='product' id='product' required='require'/>
+                        <input className='newReqInput' type="text" name='product' id='product' required='require'/>
                     </div>
                     <div className='inputBox'>
                         <label htmlFor="category">Category * </label>
-                        <select id='category' name='category' required>
-                            <option value=''></option>
+                        <select className='newReqInput' id='category' name='category' required>
+                            <option value=''> </option>
                             <option value='Appliances'>Appliances</option>
                             <option value='Baby & Kid'>Baby & Kid</option>
                             <option value='Clothing & Shoes'>Clothing & Shoes</option>
@@ -99,9 +99,9 @@ export default class NewRequestPage extends Component {
                     </div>
                     <div className='inputBox'>
                         <label htmlFor="moreInfo">More Info *</label>
-                        <textarea rows={10} name='moreInfo' id='moreInfo' required='require' />
+                        <textarea className='newReqInput' rows={10} name='moreInfo' id='moreInfo' required='require' />
                     </div>
-                    <input className='submitRequest submitRequestButton' type='submit' value='SUBMIT'/>
+                    <input className='submitRequest submitRequestButton' type='submit' value='Submit'/>
                 </form> 
                 </div>
             </section>

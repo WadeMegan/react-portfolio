@@ -1,30 +1,43 @@
 .allRequestsPage{
-  padding-left:20px;
-  padding-right:20px;
+  background-color:white;
+}
+
+.allRequestsPage h2{
+  text-align: center;
+  font-size:22px;
+}
+
+.allRequestsPage h3{
+  margin-left:5px;
 }
 
 .filterBox{
-    background-color: #fa7d71;
-    border:3px solid #d66a5f;
-    padding:10px;
+  background-color:#fa7d71;
+    padding:20px;
+    border-radius:2px;
 }
+
 
 .filterInputIndiv{
   display:flex;
   flex-direction: column;
-  width:50%;
+  width:48%;
 }
 
   .filterInput {
-    border: 1px solid black; 
-    width:95%;
+    width:100%;
+    height:24px;
+    border-radius: 2px;
+    background-color:white;
   }
   
+
 
 .inputsDiv {
   display:flex;
   padding-top:10px;
   padding-bottom:10px;
+  justify-content: space-between;
 }
 
 .searchButton{
@@ -47,8 +60,8 @@
 
 .newRequestButton{
   width:140px;
-  background-color:#384a62;
-  color:white;
+  border:1px solid #384a62;
+  color:#384a62;
   display:flex;
   justify-content: center;
   align-items:center;
@@ -59,15 +72,57 @@
 }
 
 .newRequestButton:hover{
-  background-color: #7496a2;
+  background-color: #384a62;
+  color:white;
   cursor: pointer;
 }
 
-.or{
-  padding-top:10px;
-  padding-bottom:10px;
-}
 
 .loginLink{
   color:black;
+}
+
+.filterForm{
+  padding-top:15px;
+}
+
+.buttonsContainer{
+  display:flex;
+  justify-content: space-between;
+}
+
+.buttonsContainer input, .buttonsContainer a{
+  width:48%;
+} 
+
+.buttonsContainer p{
+  width:48%;
+  text-align: center;
+}
+
+@media only screen and (min-width: 600px) {
+  .filterBox{
+    padding-top:20px;
+    padding-bottom:20px;
+    padding-right:50px;
+    padding-left:50px;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .filterBox{
+    padding-top:20px;
+    padding-bottom:20px;
+    padding-right:80px;
+    padding-left:80px;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .filterBox{
+    padding-top:20px;
+    padding-bottom:20px;
+    padding-right:160px;
+    padding-left:160px;
+  }
 }

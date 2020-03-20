@@ -62,19 +62,20 @@ export default class UpdateRequest extends Component {
       const {error} = this.state
         return(
             <Error>
-            <form className='filterForm' onSubmit={this.submitForm}>
+            <form className='updateRequestForm' onSubmit={this.submitForm}>
+                <legend>Update your request:</legend>
                 <div role='alert' id='error'>
                     {error && <p>{error}</p>}
                 </div>
-                <div>
+                <div className='updateReqInput'>
                     <label htmlFor="product">Product</label>
                     <input type="text" name='product' id='product' defaultValue={this.props.request.product} />
                 </div>
-                <div>
+                <div className='updateReqInput'>
                     <label htmlFor="info">Info</label>
-                    <input type="text" name='info' id='info' defaultValue={this.props.request.info} />
+                    <textarea rows={5} type="text" name='info' id='info' defaultValue={this.props.request.info} />
                 </div>
-                <input className='updateButton' type='submit' value='Update'/>
+                <input className='updateReqButton' type='submit' value='Update'/>
             </form> 
             </Error>
         )

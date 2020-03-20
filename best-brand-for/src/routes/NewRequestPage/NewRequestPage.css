@@ -3,10 +3,13 @@
     height:76vh;
   }
   
-  .sideBar{
-    width:20%;
-    padding-left:20px;
-  }
+.sideBar{
+  width:25%;
+  padding-top:25px;
+  background-color:#fa7d70;
+  padding-left:10px;
+  padding-right:10px;
+}
   
   .backButton{
     width:100%;
@@ -28,10 +31,15 @@
   }
   
   .mainBar{
-    width:80%;
+    padding-top:25px;
     overflow:scroll;
     padding-left:20px;
     padding-right:20px;
+    width:100%;
+  }
+
+  .mainBar h2{
+    font-size:22px;
   }
   
   .inputBox {
@@ -45,7 +53,7 @@
   }
 
 .submitRequestButton{
-  width:25%;
+  width:100%;
   background-color:#384a62;
   color:white;
   display:flex;
@@ -62,4 +70,27 @@
 .submitRequestButton:hover{
   background-color: #7496a2;
   cursor: pointer;
+}
+
+.newReqInput{
+  width:100%;
+  background-color:white;
+}
+
+@media only screen and (min-width: 600px) {
+  .mainBar{
+    padding-right:100px;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  .mainBar{
+    padding-right:150px;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  .mainBar{
+    padding-right:400px;
+  }
 }

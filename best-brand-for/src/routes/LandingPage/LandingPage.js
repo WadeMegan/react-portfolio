@@ -14,14 +14,15 @@ export default class LandingPage extends Component {
                             <h2>ADVICE YOU NEED</h2>
                             <p>Looking to make a purchase, but all of the options are giving you decision fatigue? </p>
                             <p>Best Brand For helps you make better buying choices with the experience of real people.</p>
-                            <Link to='/register' className='registerButton'>REGISTER</Link>
+                            <Link to='/register' className='registerButton'>Register</Link>
                         </div>
                     </div>
                 </div>
                 <div className='noAccountContainer'>
                     <h3>NO ACCOUNT? NO WORRIES.</h3>
                     <p>Someone may have already made a request for the product you're looking for. Anyone can see all existing requests without logging in.</p>
-                    <Link to='/requests/all' className='seeExistingButton'>SEE EXISTING REQUESTS</Link>
+                    <Link to='/requests/all' className='seeExistingButton'>See Existing Requests</Link>
+                    <p>Or, <Link className='signinLink' to='/login'>go to login page</Link> to find demo information.</p>
                 </div>
                 <div className='shortContainer'>
                     <div className='indivShort'>

@@ -10,8 +10,12 @@ export default class RequestItem extends Component {
                 <div className='request'>
                     <p>Best Brand For...</p>
                     <h4>{this.props.request.product}</h4>
-                    <p>Requested in {this.props.request.category} on {new Date(this.props.request.date).toLocaleDateString()}</p>
-                    <p>{/*find some way to count the number of comments*/}</p> 
+                    <div className='indivRequestInfo'>
+                        <i className="fas fa-store"></i>
+                        <p>{this.props.request.category}</p>
+                        <i className="fas fa-clock"></i>
+                        <p>{new Date(this.props.request.date).toLocaleDateString()}</p>
+                    </div>
                 </div>
             </Link>
         )

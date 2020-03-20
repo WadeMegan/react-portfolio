@@ -60,19 +60,20 @@ export default class UpdateComment extends Component {
     const {error} = this.state
         return(
             <Error>
-            <form className='comment' onSubmit={this.submitForm}>
+            <form className='comment updateCommentForm' onSubmit={this.submitForm}>
+                <legend>Update your comment:</legend>
                 <div role='alert' id='error'>
                     {error && <p>{error}</p>}
                 </div>
-                    <div>
+                    <div className='updateReqInput'>
                         <label htmlFor="brand">Brand</label>
                         <input type="text" name='brand' id='brand' defaultValue={this.props.comment.brand}/>
-                    </div>
-                    <div>
+                    </div >
+                    <div className='updateReqInput'>
                         <label htmlFor="why">Why?</label>
-                        <input type="text" name='why' id='why' defaultValue={this.props.comment.why}/>
+                        <textarea row={5} type="text" name='why' id='why' defaultValue={this.props.comment.why}/>
                     </div>
-                    <input className='updateComment' type='submit' value='Update'/>
+                    <input className='updateComment updateReqButton' type='submit' value='Update'/>
                 </form> 
                 </Error>
         )

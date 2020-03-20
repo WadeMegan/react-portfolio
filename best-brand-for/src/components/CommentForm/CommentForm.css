@@ -10,14 +10,15 @@
 
 .commentForm{
   padding:10px;
-  background-color: #fa7d71;
-  border:3px solid #d66a5f;
+  background-color:#384a62;
+  color:white;
+  border-radius:2px;
 }
 
 .submitComment{
-  width:80px;
+  width:100%;
   background-color:#384a62;
-  color:white;
+  color:#fa7d70;
   display:flex;
   justify-content: center;
   align-items:center;
@@ -26,9 +27,11 @@
   font-weight: bold;
   border-radius: 2px;
   margin-top:10px;
+  border:1px solid #fa7d70;
 }
 
 .submitComment:hover{
-  background-color: #7496a2;
+  background-color: #fa7d70;
+  color:#384a62;
   cursor: pointer;
 }

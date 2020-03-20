@@ -114,8 +114,8 @@ export default class LandingPage extends Component {
         if(this.context.currentRequest.user_id==UserService.getUserToken()){
             return (
                 <div className='editAndDeleteBox'>
-                    <button onClick={this.deleteRequest} className='requestButton'>DELETE</button>
-                    <button onClick={this.updateRequest} className='requestButton editButton'>EDIT</button>
+                    <button onClick={this.deleteRequest} className='deleteButton'>Delete</button>
+                    <button onClick={this.updateRequest} className='editButton'>Edit</button>
                 </div>
             )
         }
@@ -174,7 +174,7 @@ export default class LandingPage extends Component {
             <Error>
             <section className='indivRequestPage'>
                 <div className='sideBar'>
-                <button className='backButton' onClick={this.props.history.goBack}>BACK</button>
+                <button className='backButton' onClick={this.props.history.goBack}>Back</button>
                 </div>
                 <div className='mainBar'>
                 {this.renderRequest()}

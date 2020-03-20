@@ -40,8 +40,8 @@ export default class RequestItem extends Component {
         if(this.props.comment.user_id==UserService.getUserToken()){
             return (
                 <div className='commentButtonBox'>
-                    <button onClick={this.deleteComment} className='commentButton deleteButton'>Delete</button>
-                    <button onClick={this.updateComment} className='commentButton'>Edit</button>
+                    <button onClick={this.deleteComment} className='deleteButton'>Delete</button>
+                    <button onClick={this.updateComment} className='editButtonComment'>Edit</button>
                 </div>
             )
         }

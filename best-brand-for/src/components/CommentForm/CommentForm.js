@@ -46,18 +46,20 @@ export default class CommentForm extends Component {
         else{
             return(
                 <Error>
-                <form className='comment commentForm' onSubmit={this.handleSubmit}>
-                    <legend>Got a brand you're passionate about?</legend>
-                    <div>
-                        <label htmlFor="brand">Brand *</label>
-                        <input className='inputArea' type="text" name='brand' id='brand' required='require'/>
-                    </div>
-                    <div>
-                        <label htmlFor="why">Why? *</label>
-                        <textarea className='inputArea' rows={3} type="text" name='why' id='why' required='require'/>
-                    </div>
-                    <input className='submitComment' type='submit' value='Submit'/>
-                </form> 
+                <div className='comment commentForm'>
+                    <p>Make a recommendation:</p>
+                    <form onSubmit={this.handleSubmit}>
+                        <div>
+                            <label htmlFor="brand">Brand *</label>
+                            <input className='inputArea' type="text" name='brand' id='brand' required='require'/>
+                        </div>
+                        <div>
+                            <label htmlFor="why">Why? *</label>
+                            <textarea className='inputArea' rows={3} name='why' id='why' required='require'/>
+                        </div>
+                        <input className='submitComment' type='submit' value='Submit'/>
+                    </form> 
+                </div>
                 </Error>
             )
         }

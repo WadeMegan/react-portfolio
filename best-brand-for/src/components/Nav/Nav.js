@@ -48,7 +48,7 @@ export default class Nav extends Component {
     return(<>
 
       <div className = 'dropdown'>
-          <button className='dropdownButton'>MENU </button>
+          <button className='dropdownButton'>Menu</button>
           <div className='dropdownContent'> 
             <Link to='/requests/all'>All Requests</Link> 
             <Link to='/requests/users'>Your Requests</Link>

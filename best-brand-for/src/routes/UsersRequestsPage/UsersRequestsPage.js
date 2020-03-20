@@ -5,6 +5,7 @@ import RequestListContext from '../../contexts/RequestListContext'
 import RequestItem from '../../components/RequestItem/RequestItem'
 import UserService from '../../services/user-service'
 import Error from '../../components/Error/Error'
+import './UsersRequestsPage.css'
 
 
 export default class UsersRequestsPage extends Component {
@@ -51,8 +52,10 @@ export default class UsersRequestsPage extends Component {
         return(
             <Error>
             <section className='allRequestsPage'>
-                <h2>YOUR REQUESTS</h2>
-                <Link to='/newrequest' className='newRequestButton'>New Request</Link> 
+                <div className='filterBox filterBoxUsers'>
+                    <h2>YOUR REQUESTS</h2>
+                    <Link to='/newrequest' className='newRequestButtonUsers'>New Request</Link> 
+                </div>
                 <div className='requestsBox'>
                     {this.renderRequests(this.context.usersList)}
                 </div> 

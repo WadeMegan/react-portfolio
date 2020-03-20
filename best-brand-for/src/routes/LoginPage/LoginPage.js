@@ -86,24 +86,26 @@ export default class LoginPage extends Component {
         return(
             <Error>
             <section className='loginSection'>
-                <p>Get the advice you need for the products you want.</p>
-                <form className='loginForm' onSubmit={this.handleSubmitJwtAuth}>
-                <legend>LOGIN</legend>
-                <p className='demo'>To demo, sign in with <br/> email: test@gmail.com <br/> password: password</p>
-                <div role='alert' id='error'>
-                    {error && <p>{error}</p>}
+                <p className='outsideFormP'>Get the advice you need for the products you want.</p>
+                <div className='loginForm'>
+                    <h2>LOGIN</h2>
+                    <form  onSubmit={this.handleSubmitJwtAuth}>
+                    <div role='alert' id='error'>
+                        {error && <p>{error}</p>}
+                    </div>
+                    <p className='demo'>To demo, use <br/> email: test@gmail.com <br/> password: password</p>
+                    <div className='loginInputBox'>
+                        <label htmlFor="email">Email *</label>
+                        <input className='formInput' type="text" name='email' id='email' required='require'/>
+                    </div>
+                    <div className='loginInputBox'>
+                        <label htmlFor="password">Password *</label>
+                        <input className='formInput' type="password" name='password' id='password' required='require'/>
+                    </div>
+                    <input type='submit' value='Submit' className='submitButton'/>
+                    </form>
                 </div>
-                <div className='loginInputBox'>
-                    <label htmlFor="email">Email *</label>
-                    <input className='formInput' type="text" name='email' id='email' required='require'/>
-                </div>
-                <div className='loginInputBox'>
-                    <label htmlFor="password">Password *</label>
-                    <input className='formInput' type="password" name='password' id='password' required='require'/>
-                </div>
-                <input type='submit' value='Submit' className='submitButton'/>
-                </form>
-                <p>New to Best Brand For? <Link to='/register'>Register.</Link></p>
+                <p className='outsideFormP'>New to Best Brand For? <Link to='/register'>Register.</Link></p>
             </section>
             </Error>
         )

@@ -75,31 +75,33 @@ export default class RegisterPage extends Component {
         return(
             <Error>
             <section className='loginSection' >
-                <p>Get the advice you need for the products you want.</p>
-                <form className='loginForm' onSubmit={this.handleSubmit}>
-                <legend>REGISTER</legend>
-                <div role='alert' id='error'>
-                        {error && <p>{error}</p>}
+                <p className='outsideFormP'>Get the advice you need for the products you want.</p>
+                <div className='loginForm'>
+                    <h2>REGISTER</h2>
+                    <form onSubmit={this.handleSubmit}>
+                    <div role='alert' id='error'>
+                            {error && <p>{error}</p>}
+                        </div>
+                    <div className='loginInputBox'>
+                        <label htmlFor="firstName">First Name *</label>
+                        <input className='formInput' type="text" name='firstName' id='firstName' required='require' />
                     </div>
-                <div>
-                    <label htmlFor="firstName">First Name *</label>
-                    <input className='formInput' type="text" name='firstName' id='firstName' required='require' />
+                    <div className='loginInputBox'>
+                        <label htmlFor="lastName">Last Name *</label>
+                        <input className='formInput' type="text" name='lastName' id='lastName' required='require'/>
+                    </div>
+                    <div className='loginInputBox'>
+                        <label htmlFor="email">Email *</label>
+                        <input className='formInput' type="text" name='email' id='email' required='require'/>
+                    </div>
+                    <div className='loginInputBox'>
+                        <label htmlFor="password">Password *</label>
+                        <input className='formInput' type="password" name='password' id='password' required='require'/>
+                    </div>
+                    <input type='submit' value='Submit' className='submitButton'/>
+                    </form>
                 </div>
-                <div>
-                    <label htmlFor="lastName">Last Name *</label>
-                    <input className='formInput' type="text" name='lastName' id='lastName' required='require'/>
-                </div>
-                <div>
-                    <label htmlFor="email">Email *</label>
-                    <input className='formInput' type="text" name='email' id='email' required='require'/>
-                </div>
-                <div>
-                    <label htmlFor="password">Password *</label>
-                    <input className='formInput' type="password" name='password' id='password' required='require'/>
-                </div>
-                <input type='submit' value='Submit' className='submitButton'/>
-                </form>
-                <p>Already have an account? <Link to='/login'>Login.</Link></p>
+                <p className='outsideFormP'>Already have an account? <Link to='/login'>Login.</Link></p>
             </section>
             </Error>
         )
