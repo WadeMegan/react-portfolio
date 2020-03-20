@@ -1,6 +1,6 @@
 .inputArea{
-    border:1px solid black;
-  }
+  border:1px solid black;
+}
 
 .commentForm div{
   display:flex;
@@ -34,4 +34,8 @@
   background-color: #fa7d70;
   color:#384a62;
   cursor: pointer;
+}
+
+.commentForm a {
+  color:white;
 }

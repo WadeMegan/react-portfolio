@@ -12,36 +12,36 @@ nav {
   padding-right:20px;
   color:white;
   box-shadow: 0 10px 10px -1px rgba(56,74,97,.4);
-  }
+}
 
 nav h1{
   font-size: 24px;
   color:white;
 }
   
-  nav ul {
-    list-style-type: none;
-  }
-  
-  nav ul li {
-    text-decoration: none;
-  }
+nav ul {
+  list-style-type: none;
+}
+
+nav ul li {
+  text-decoration: none;
+}
 
 nav ul li a, .dropdownButton {
   text-decoration: none;
   color:white;
   width:70px;
   border:1px solid white;
-    color:white;
-    display:flex;
-    justify-content: center;
-    align-items:center;
-    padding:5px;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 2px;
-    background-color: #384a62;
-    font-size: 16px;
+  color:white;
+  display:flex;
+  justify-content: center;
+  align-items:center;
+  padding:5px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 2px;
+  background-color: #384a62;
+  font-size: 16px;
 }
 
 nav ul li a:hover, .dropdown:hover .dropdownButton{
@@ -50,9 +50,7 @@ nav ul li a:hover, .dropdown:hover .dropdownButton{
   color:#384a62;
 }
 
-
-/* Drop down menu */
-
+/* Styling for drop down menu */
 
 .dropdown{
   position: relative;

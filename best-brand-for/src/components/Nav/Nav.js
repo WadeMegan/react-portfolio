@@ -5,33 +5,36 @@ import UserService from '../../services/user-service'
 import TokenService from '../../services/token-service'
 import RequestListContext from '../../contexts/RequestListContext'
 
-
 export default class Nav extends Component {
+  
   static contextType = RequestListContext
   
   state={
     loggedIn: null
   }
   
-  // Nav component receives isLoggedIn App component state as a prop
-    // if isLoggedIn is true, meaning a user has logged in, setState loggedIn to true
-    componentWillReceiveProps(nextProps){
-      if(nextProps.isLoggedIn){
-          this.setState({
-              loggedIn: true
-          })
-      }
+  /* Nav component receives isLoggedIn App component state as a prop.
+  If isLoggedIn is true, meaning a user has logged in, setState loggedIn to true */
+  componentWillReceiveProps(nextProps){
+    if(nextProps.isLoggedIn){
+        this.setState({
+            loggedIn: true
+        })
+    }
   }
   
-  // when user clicks logout link, clear the auth token and user token and set loggedIn to false
+  // when user clicks logout link, clear user info stored in local storage and set loggedIn to false
   handleLogoutClick = () => {
+    
     TokenService.clearAuthToken()
     UserService.clearUserToken()
     UserService.clearFNameToken()
     UserService.clearLNameToken()
+    
     this.setState({
         loggedIn:false
     })
+
   }
 
   renderLoginLinks(){
@@ -43,10 +46,7 @@ export default class Nav extends Component {
   }
 
   renderLogoutLinks(){
-
-
     return(<>
-
       <div className = 'dropdown'>
           <button className='dropdownButton'>Menu</button>
           <div className='dropdownContent'> 
@@ -59,24 +59,18 @@ export default class Nav extends Component {
     )
   }
 
-  /*<p className='userIcon'>{fName}{lName}</p>*/
-
-  componentDidMount=()=>{
-    //console.log(this.context.user)
-  }
-
+  /* if there is auth token in local storage, meaning user is logged in, render logout links.
+  if there is no auth token in local store, meaning user is not logged in, render login links */
   render(){
-        return(
-            <nav>
-                <h1>BEST BRAND FOR</h1>
-                
-                
-                {TokenService.hasAuthToken()
-                ? this.renderLogoutLinks()
-                : this.renderLoginLinks()}
-            </nav>
-        )
-    }
+    return(
+      <nav>
+        <h1>BEST BRAND FOR</h1>
+        {TokenService.hasAuthToken()
+        ? this.renderLogoutLinks()
+        : this.renderLoginLinks()}
+      </nav>
+    )
+  }
 }
 
 

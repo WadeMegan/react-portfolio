@@ -18,9 +18,9 @@ class App extends Component {
     isLoggedIn: false, //will be passed to Nav component to render different links based on logged in or not
   }
 
-  // will be passed to LoginPage as props
-  // upon successful login, will set state isLoggedIn to true
-  // necessary for rendering different links in Nav
+  /* Will be passed to LoginPage as props
+  upon successful login, will set state isLoggedIn to true
+  necessary for rendering different links in Nav*/
   handleLogin=()=>{
     this.setState({
       isLoggedIn:true
@@ -38,16 +38,16 @@ class App extends Component {
           <PublicOnlyRoute path={'/register'} component={RegisterPage}/>
           <Route exact path={'/requests/all'} component={AllRequestsPage}/>
           <PrivateRoute exact path={'/requests/users'} component={UsersRequestsPage}/>
-          <Route path={'/requests/:id'} render={(props)=> <IndividualRequestPage {...props} />}/>
+          <Route path={'/requests/:id'} render={(props)=> <IndividualRequestPage {...props}/>}/>
           <PrivateRoute path={'/newrequest'} component={NewRequestPage}/>
         </Switch>
       </main>
       <footer>
         <p>Created by Megan Wade</p>
         <ul className='socialLinks'>
-            <li><a href='https://www.linkedin.com/in/megan-wade-909129124/' target='_blank' rel="noopener noreferrer" aria-label='linkedin link'><i className='fab fa-linkedin fa-2x'></i></a></li>
-            <li><a href='mailto:meganwade96@gmail.com' target='_blank' rel="noopener noreferrer" aria-label='email link'><i className='fas fa-envelope-square fa-2x'></i></a></li>
-            <li><a href='https://github.com/WadeMegan' target='_blank' rel="noopener noreferrer" aria-label='github link'><i className='fab fa-github-square fa-2x'></i></a></li>
+            <li><a href='https://www.linkedin.com/in/megan-wade-909129124/' target='_blank' rel='noopener noreferrer' aria-label='linkedin link'><i className='fab fa-linkedin fa-2x'></i></a></li>
+            <li><a href='mailto:meganwade96@gmail.com' target='_blank' rel='noopener noreferrer' aria-label='email link'><i className='fas fa-envelope-square fa-2x'></i></a></li>
+            <li><a href='https://github.com/WadeMegan' target='_blank' rel='noopener noreferrer' aria-label='github link'><i className='fab fa-github-square fa-2x'></i></a></li>
         </ul>
       </footer>
       </>

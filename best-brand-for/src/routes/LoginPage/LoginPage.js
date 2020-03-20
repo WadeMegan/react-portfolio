@@ -10,6 +10,7 @@ import RequestApiService from '../../services/request-api-services'
 import Error from '../../components/Error/Error'
 
 export default class LoginPage extends Component {
+    
     static contextType = RequestListContext
 
     state = {
@@ -20,7 +21,7 @@ export default class LoginPage extends Component {
     // upon successful login ... 
     onLoginSuccess = (e, user) => {
         this.setState({ 
-            toRequests:true, // set true for redirecting (see render method)
+            toRequests:true, // set true for redirecting 
         },()=>{this.props.onLogin()}) // call this.props.onLogin which will set the App component isLoggedIn state to true
     }
 
@@ -39,25 +40,26 @@ export default class LoginPage extends Component {
             email: email.value,
             password: password.value,
         })
-            // if login info is correct save the user's auth token and id to sessionStorage and call this.onLoginSuccess()
+            // if login info is correct save the user's info to storage and call this.onLoginSuccess()
             .then(res=>{
                 email.value=''
                 password.value=''
                 TokenService.saveAuthToken(res.authToken)
                 //save user id in local storage for refresh
                 UserService.saveUserToken(res.id)
-                UserService.saveFNameToken(res.user.first_name /*change to res.first_name*/) 
-                UserService.saveLNameToken(res.user.last_name /*change to res.last_name*/)
+                UserService.saveFNameToken(res.user.first_name) 
+                UserService.saveLNameToken(res.user.last_name)
                 
+                //GET all request
                 RequestApiService.getAllRequests()
                     .then(res=>{
                         this.context.setRequestList(res)
+                        //GET user's requests
                         RequestApiService.getRequestsByUserId(UserService.getUserToken())
                             .then(this.context.setUsersList)
                             .catch(this.context.setError)
                     })
                     .catch(this.context.setError)
-                
                     this.onLoginSuccess(res.user)      
             })
             .catch(res=>{
@@ -76,37 +78,36 @@ export default class LoginPage extends Component {
         this.context.clearError()
     }
     
-    
     render(){
         const {error}=this.state
-        // upon successful login, redirect to your plants page
+        // upon successful login, redirect to users requests page
         if(this.state.toRequests===true){
             return <Redirect to='/requests/all'/>
         }
         return(
             <Error>
-            <section className='loginSection'>
-                <p className='outsideFormP'>Get the advice you need for the products you want.</p>
-                <div className='loginForm'>
-                    <h2>LOGIN</h2>
-                    <form  onSubmit={this.handleSubmitJwtAuth}>
-                    <div role='alert' id='error'>
-                        {error && <p>{error}</p>}
+                <section className='loginSection'>
+                    <p className='outsideFormP'>Get the advice you need for the products you want.</p>
+                    <div className='loginForm'>
+                        <h2>LOGIN</h2>
+                        <form  onSubmit={this.handleSubmitJwtAuth}>
+                        <div role='alert' id='error'>
+                            {error && <p>{error}</p>}
+                        </div>
+                        <p className='demo'>To demo, use <br/> email: test@gmail.com <br/> password: password</p>
+                        <div className='loginInputBox'>
+                            <label htmlFor='email'>Email *</label>
+                            <input className='formInput' type='text' name='email' id='email' required='require'/>
+                        </div>
+                        <div className='loginInputBox'>
+                            <label htmlFor='password'>Password *</label>
+                            <input className='formInput' type='password' name='password' id='password' required='require'/>
+                        </div>
+                        <input type='submit' value='Submit' className='submitButton'/>
+                        </form>
                     </div>
-                    <p className='demo'>To demo, use <br/> email: test@gmail.com <br/> password: password</p>
-                    <div className='loginInputBox'>
-                        <label htmlFor="email">Email *</label>
-                        <input className='formInput' type="text" name='email' id='email' required='require'/>
-                    </div>
-                    <div className='loginInputBox'>
-                        <label htmlFor="password">Password *</label>
-                        <input className='formInput' type="password" name='password' id='password' required='require'/>
-                    </div>
-                    <input type='submit' value='Submit' className='submitButton'/>
-                    </form>
-                </div>
-                <p className='outsideFormP'>New to Best Brand For? <Link to='/register'>Register.</Link></p>
-            </section>
+                    <p className='outsideFormP'>New to Best Brand For? <Link to='/register'>Register.</Link></p>
+                </section>
             </Error>
         )
     }

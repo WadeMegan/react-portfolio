@@ -12,8 +12,6 @@ const RequestApiService = {
     postNewRequest(userId, productVal, categoryVal, infoVal){
         
         let newDate = new Date()
-
-        //console.log(userId, productVal, categoryVal, infoVal)
         
         return fetch(`${config.API_ENDPOINT}/requests`,{
             method: 'POST',

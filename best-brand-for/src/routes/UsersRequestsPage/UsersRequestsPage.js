@@ -9,12 +9,12 @@ import './UsersRequestsPage.css'
 
 
 export default class UsersRequestsPage extends Component {
+    
     static contextType = RequestListContext
 
-    //if requestList is empty, make get request for all requests
-    //important for refreshing
+    // if requestList is empty, make get request for all requests
+    // important for refreshing
     componentWillMount=()=>{
-        //console.log(this.context.usersList)
         if(!this.context.usersList.length){
             RequestApiService.getRequestsByUserId(UserService.getUserToken())
                 .then(this.context.setUsersList)
@@ -23,7 +23,6 @@ export default class UsersRequestsPage extends Component {
     }
 
     renderRequests=(requests)=>{
-        
         let results
         if(requests.length===1){
             results = '1 Result'
@@ -51,15 +50,15 @@ export default class UsersRequestsPage extends Component {
     render(){
         return(
             <Error>
-            <section className='allRequestsPage'>
-                <div className='filterBox filterBoxUsers'>
-                    <h2>YOUR REQUESTS</h2>
-                    <Link to='/newrequest' className='newRequestButtonUsers'>New Request</Link> 
-                </div>
-                <div className='requestsBox'>
-                    {this.renderRequests(this.context.usersList)}
-                </div> 
-            </section>
+                <section className='allRequestsPage'>
+                    <div className='filterBox filterBoxUsers'>
+                        <h2>YOUR REQUESTS</h2>
+                        <Link to='/newrequest' className='newRequestButtonUsers'>New Request</Link> 
+                    </div>
+                    <div className='requestsBox'>
+                        {this.renderRequests(this.context.usersList)}
+                    </div> 
+                </section>
             </Error>
         )
     }

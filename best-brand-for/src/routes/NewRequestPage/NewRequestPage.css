@@ -1,7 +1,7 @@
 .newRequestPage{
-    display:flex;
-    height:76vh;
-  }
+  display:flex;
+  height:76vh;
+}
   
 .sideBar{
   width:25%;
@@ -11,46 +11,46 @@
   padding-right:10px;
 }
   
-  .backButton{
-    width:100%;
-    background-color:#384a62;
-    color:white;
-    display:flex;
-    justify-content: center;
-    align-items:center;
-    padding:5px;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 2px;
-    border:0px;
-  }
+.backButton{
+  width:100%;
+  background-color:#384a62;
+  color:white;
+  display:flex;
+  justify-content: center;
+  align-items:center;
+  padding:5px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 2px;
+  border:0px;
+}
 
-  .backButton:hover{
-    background-color: #7496a2;
-    cursor: pointer;
-  }
+.backButton:hover{
+  background-color: #7496a2;
+  cursor: pointer;
+}
   
-  .mainBar{
-    padding-top:25px;
-    overflow:scroll;
-    padding-left:20px;
-    padding-right:20px;
-    width:100%;
-  }
+.mainBar{
+  padding-top:25px;
+  overflow:scroll;
+  padding-left:20px;
+  padding-right:20px;
+  width:100%;
+}
 
-  .mainBar h2{
-    font-size:22px;
-  }
-  
-  .inputBox {
-    display:flex;
-    flex-direction: column;
-    padding-top:10px;
-  }
+.mainBar h2{
+  font-size:22px;
+}
 
-  .inputBox input, .inputBox select, .inputBox textarea{
-    border:1px solid black;
-  }
+.inputBox {
+  display:flex;
+  flex-direction: column;
+  padding-top:10px;
+}
+
+.inputBox input, .inputBox select, .inputBox textarea{
+  border:1px solid black;
+}
 
 .submitRequestButton{
   width:100%;
