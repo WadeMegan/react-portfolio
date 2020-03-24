@@ -73,16 +73,16 @@ exports[`should match with snapshot 1`] = `
       className="commentSection"
     >
       <div
-        className="comment"
+        className="comment commentForm"
       >
-        <a
-          href="/login"
-          onClick={[Function]}
-        >
-          Login
-        </a>
         <p>
-          to make a recommendation
+          <a
+            href="/login"
+            onClick={[Function]}
+          >
+            Login
+          </a>
+           to make a recommendation.
         </p>
       </div>
       <p

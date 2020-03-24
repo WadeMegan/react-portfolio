@@ -1,0 +1,365 @@
+*{
+  border:0;
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+
+body{
+  background-color: #4b535a;
+}
+
+#root{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content: center;
+  background-color:#4b535a;
+}
+
+/* Font styling */
+
+nav,button,.project-button, h1,h2,h3,.contact-form-submit, .lets-talk-button{
+  font-family: 'Oswald', sans-serif;
+}
+
+p,label,input{
+  font-family: 'Roboto', sans-serif;
+}
+
+h1,h2,h3{
+  font-size:32px;
+  line-height:42px;
+}
+
+.label{
+  font-size:18px;
+  line-height:24px;
+}
+
+p,input,button,.project-button,.contact-form-submit,nav{
+  font-size:16px;
+  line-height:24px;
+}
+
+/* styling for nav bar */
+
+.nav-bar{
+  height:8%;
+  width:100%;
+  position:fixed;
+  top:0;
+  bottom:0;
+  background-color:#4b535a;
+}
+
+.nav-items{
+  width:100%;
+  height:100%;
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+}
+
+.nav-items li{
+ display:inline;
+}
+
+.nav-items a{
+  text-decoration:none;
+  color:white;
+}
+
+.nav-items a:hover{
+  font-size:20px;
+}
+
+/* used in index.js */
+.active{
+ font-size:20px;
+}
+
+/* styling for main section */
+
+.App{  
+  width:84%;
+  height:84%;
+  position:fixed;
+  top:8%;
+  background-color:white;
+  border-radius:10px;
+  overflow-y:scroll;
+}
+
+/*styling for megan-wade section */
+
+.megan-wade{
+  width:100%;
+  background-color:white;
+  padding:10%;
+}
+
+.logo{
+  height:175px;
+  border-radius:50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+span{
+  color:#1c5a81;
+}
+.about h1,.about p{
+  margin-bottom:30px;
+}
+
+.about h1{
+  margin-top:20px;
+}
+
+/* ALL styling for ALL buttons */
+
+.lets-talk-link{
+  text-decoration: none;
+}
+
+.lets-talk-button{
+  border-radius:5px;
+  height:50px;
+  text-decoration: none;
+  font-style: none;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-form-submit{
+  display:block;
+  width:100%;
+  height:50px;
+  border-radius: 5px;
+  margin-top:15px;
+}
+
+.project-buttons-container{
+  width:75%;
+  display:flex;
+  flex-direction:column;
+}
+
+.project-button{
+  border-radius:5px;
+  text-decoration:none;
+  padding:5px;
+}
+
+.demo{
+  margin-top:5px;
+}
+
+button,.contact-form-submit,.project-button,.lets-talk-button{
+  background-color:#1c5a81;
+  color:white;  
+}
+
+.contact-form-submit:hover, button:hover, .project-button:hover,.lets-talk-button:hover{
+  background-color:#11374e;
+  cursor: pointer; 
+}
+
+/* styling for project section */
+
+.project{
+  padding:10%;
+  display:flex;
+  flex-direction:column;
+}
+
+.project h2{
+  text-align:center;
+}
+
+.project-container{
+  display:flex;
+  flex-direction:column;
+  margin-top: 40px;
+}
+
+.project-description{
+  padding-top:10px;
+}
+
+.project-img{
+  width:100%;
+  height:80%;
+}
+
+.languages{
+  width:80%;
+  border-bottom:1px solid black;
+}
+
+.languages li{
+  display:inline;
+}
+
+.languages i{
+  display:inline;
+  color:#6e7c84;
+  padding-right:5px;
+}
+
+.project-element{
+  padding-top:10px;
+}
+
+/* styling for contact section */
+
+.contact{
+  padding:10%;
+}
+
+.contact h2{
+  text-align:center;
+}
+
+.contact-form{
+  display:flex;
+  flex-direction:column;
+  border:1px solid white;
+}
+
+label{
+  padding-top:15px;
+  padding-bottom:5px;
+}
+
+.form-element{
+  border:1px solid grey;
+}
+
+/* styling for footer */
+
+footer{
+  height:8%;
+  width:100%;
+  position:fixed;
+  bottom:0;
+  left:0;
+  background-color:#4b535a;
+}
+
+.social-icons{
+  width:100%;
+  height:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.social-icons li{
+  display:inline;
+  padding-left:5px;
+  padding-right:5px;
+}
+
+.social-icons li a i{
+  color:white;
+}
+
+
+/*styling for screen greater than 325px wide*/
+@media only screen and (min-width:325px) {
+  /*make project buttons appear in a row*/
+  .project-buttons-container{
+      display:flex;
+      flex-direction:row;
+  }
+  .demo{
+      margin-top:0;
+      margin-left:5px;
+  }
+
+}
+
+
+/* styling for screen greater than 800px wide*/
+@media only screen and (min-width: 800px) {  
+
+ /* only decrease padding on megan-wade section*/ 
+.megan-wade{
+    padding:5%;
+}
+/* project section: decrease top and bottom padding and
+increase left and right padding*/
+.project{
+   padding-top:5%;
+   padding-bottom:5%;
+   padding-left:15%;
+   padding-right:15%;
+}
+/* contact section: decrease top and bottom padding and
+increase left and right padding*/
+.contact{
+  padding-top:5%;
+  padding-bottom:5%;
+  padding-left:15%;
+  padding-right:15%;
+}
+}
+
+
+/*styling for screen greater than 900px wide*/
+@media only screen and (min-width: 900px) {
+  /* change format of project container and decrease 
+  left and right padding*/
+  .project{
+      padding:5%;
+  }
+  .project-container{
+      flex-direction:row;
+  }
+  .project h2{
+      padding-top:0;
+  }
+  .project-img{
+      width:50%;
+  }
+  .project-description{
+      padding-left:20px;
+      padding-top:0;
+  }
+}
+
+
+
+/*styling for screen greater than 950px wide*/
+
+@media only screen and (min-width: 950px) {
+  /*change format of megan-wade section and 
+  further decreases padding*/
+  .megan-wade{
+      display:flex;
+      align-items:center;
+      padding:3%;
+  }
+  .about{
+      width:80%;
+      margin-left:40px;
+  }
+  .logo{
+      height:20%;
+      width:20%;
+      
+  }
+  /*contact section:decrease top and bottom padding*/
+  .contact{
+      padding-top:3%;
+      padding-bottom:3%;
+  }
+  /*project section:increase heading margin*/
+  .project h2{
+      text-align:center;
+  }
+}

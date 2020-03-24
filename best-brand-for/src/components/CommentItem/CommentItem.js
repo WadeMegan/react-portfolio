@@ -7,14 +7,16 @@ import UpdateComment from '../../components/UpdateComment/UpdateComment'
 import Error from '../../components/Error/Error'
 
 export default class RequestItem extends Component {
+    
     static contextType = RequestListContext
     
-    state={
+    //used to render update form if user is actively updating a comment
+    state = {
         updating: false,
     }
 
+    // makes DELETE request to delete comment 
     deleteComment=()=>{
-       
         RequestApiService.deleteComment(this.props.comment.id)
             .then(res=>{
                 RequestApiService.getCommentsByRequestId(this.context.currentRequest.id)
@@ -24,18 +26,23 @@ export default class RequestItem extends Component {
             .catch(this.context.setError)
     }
     
+    // when user clicks on edit button, will change state for updating to true
     updateComment=()=>{
         this.setState({
             updating:true
         })
     }
 
+    /* will be passed to UpdateComment 
+    when user clicks update button on UpdateCommentForm, will change state which will re-render
+    CommentItem and update it with user's changes */
     onUpdateSuccess = ()=>{
         this.setState({
             updating:false,
         })
     }
 
+    //if comment is associated with currently logged in user's id, will render edit and delete buttons
     renderDeleteEditButtons=()=>{
         if(this.props.comment.user_id==UserService.getUserToken()){
             return (
@@ -47,6 +54,8 @@ export default class RequestItem extends Component {
         }
     }
 
+    /*if this.state.updating is false, will render comment, 
+    but if this.state.updating is true, will render UpdateComment form*/
     renderComment=()=>{
         if(this.state.updating===false){
             return(
@@ -78,4 +87,5 @@ export default class RequestItem extends Component {
             </Error>
         )
     }
+    
 }

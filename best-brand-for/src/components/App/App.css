@@ -26,10 +26,9 @@ footer {
     justify-content: space-evenly;
     color: white;
     background-color:#384a62;
-    
-  }
+}
 
-  .socialLinks {
+.socialLinks {
     display:flex;
     justify-content: space-evenly;
 }

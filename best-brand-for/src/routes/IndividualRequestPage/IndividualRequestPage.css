@@ -1,25 +1,25 @@
 .indivRequestPage{
-    display:flex;
-    height:76vh;
-  }
+  display:flex;
+  height:76vh;
+}
 
-  .requestInfo{
-    background-color: #f5d8c6;
-    border-radius:2px;
-    padding: 10px;
-    margin-bottom:20px;
-  }
-  
-  .mainBar{
-    padding-bottom:20px;
-    overflow:scroll;
-  }
-  
-  .comment{
-    margin-left:30px;
-    margin-top:10px;
-    border:1px solid grey;
-  }
+.requestInfo{
+  background-color: #f5d8c6;
+  border-radius:2px;
+  padding: 10px;
+  margin-bottom:20px;
+}
+
+.mainBar{
+  padding-bottom:20px;
+  overflow:scroll;
+}
+
+.comment{
+  margin-left:30px;
+  margin-top:10px;
+  border:1px solid grey;
+}
   
 .requestData{
   display:flex;

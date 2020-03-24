@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-//import { Link } from 'react-router-dom'
 import './IndividualRequestPage.css'
 import RequestApiService from '../../services/request-api-services'
 import RequestListContext from '../../contexts/RequestListContext'
@@ -10,38 +9,37 @@ import {Redirect} from 'react-router-dom'
 import UpdateRequest from '../../components/UpdateRequest/UpdateRequest'
 import Error from '../../components/Error/Error'
 
-export default class LandingPage extends Component {
+export default class IndividualRequestPage extends Component {
+    
     static contextType = RequestListContext
 
     state = {
-        commentAdded: false, //will be passed to Nav component to render different links based on logged in or not
+        commentAdded: false,
         toRequests: false,
         updating: false,
     }
 
-    // upon successful login ... 
+    // upon successful deletion ... 
     onDeleteSuccess = (e, user) => {
         this.setState({ 
-            toRequests:true, // set true for redirecting (see render method)
+            toRequests:true, // set true for redirecting 
         }) 
     }
 
+    // upon successful request update, set updating to false
     onUpdateSuccess = ()=>{
         this.setState({
             updating:false,
         })
     }
 
-      // will be passed to LoginPage as props
-      // upon successful login, will set state isLoggedIn to true
-      // necessary for rendering different links in Nav
-      handleSubmit=()=>{
-        console.log('handleSubmit ran')
+    /* will be passed to CommentForm component as props.
+    upon successfully adding comment, will set state commentAdded to true, and will make request for current request 
+    and its comments, including newly added comment*/
+    handleSubmit=()=>{
         this.setState({
-          commentAdded: true
+            commentAdded: true
         })
-
-        
 
         RequestApiService.getRequestById(this.props.match.params.id)
             .then(this.context.setCurrentRequest)
@@ -52,12 +50,9 @@ export default class LandingPage extends Component {
             .catch(this.context.setError)
 
 
-      }
-
-
+    }
 
     componentWillMount=()=>{
-    
         RequestApiService.getRequestById(this.props.match.params.id)
             .then(this.context.setCurrentRequest)
             .catch(this.context.setError)
@@ -69,7 +64,6 @@ export default class LandingPage extends Component {
     }
 
     renderComments=(comments)=>{
-        
         let results
         if(comments.length===1){
             results = '1 Recommendation'
@@ -90,27 +84,37 @@ export default class LandingPage extends Component {
         )
     }
 
+    //when delete request button is clicked, will make DELETE request, GET new request list
     deleteRequest=()=>{
-        console.log('delete')
         RequestApiService.deleteRequest(this.context.currentRequest.id)
             .then(res=>{
-                RequestApiService.getRequestsByUserId(UserService.getUserToken())
-                    .then(this.context.setUsersList)
+                RequestApiService.getAllRequests()
+                    .then(res=>{
+                        this.context.setRequestList(res)
+                        //GET user's requests
+                        RequestApiService.getRequestsByUserId(UserService.getUserToken())
+                            .then(this.context.setUsersList)
+                            .catch(this.context.setError)
+                    })
                     .catch(this.context.setError)
+                
+                /*RequestApiService.getRequestsByUserId(UserService.getUserToken())
+                    .then(this.context.setUsersList)
+                    .catch(this.context.setError)*/
                 this.onDeleteSuccess()
             })
             .catch(this.context.setError)
     }
 
+    // when update request button is clicked, will set updating state to true
     updateRequest=()=>{
-        console.log('update clicked')
         this.setState({
             updating:true
         })
     }
 
+    //if currently logged in user has user_id attached to current request, will render delete and edit buttons
     renderDeleteEditButtons=()=>{
-
         if(this.context.currentRequest.user_id==UserService.getUserToken()){
             return (
                 <div className='editAndDeleteBox'>
@@ -121,8 +125,11 @@ export default class LandingPage extends Component {
         }
     }
 
+    /* if this.state.updating is false, renders request.
+    if this.state.updating is true, will render UpdateRequest component*/
     renderRequest=()=>{
         if(this.state.updating===false){
+            
             let lastName = this.context.currentRequest.last_name
             let lastInitial = new String(lastName).charAt(0)
 
@@ -141,11 +148,6 @@ export default class LandingPage extends Component {
                             <p>{this.context.currentRequest.category}</p>
                         </div>
                     </div>
-
-                    
-                    
-                    
-
                     <p>{this.context.currentRequest.info}</p>
                     {this.renderDeleteEditButtons()}
                 </div>
@@ -160,7 +162,6 @@ export default class LandingPage extends Component {
 
     componentDidMount=()=>{
         this.context.clearError()
-
     }
     
 
@@ -169,23 +170,21 @@ export default class LandingPage extends Component {
         if(this.state.toRequests===true){
             return <Redirect to='/requests/users'/>
         }
-        //console.log(this.context.currentComments)
+ 
         return(
             <Error>
-            <section className='indivRequestPage'>
-                <div className='sideBar'>
-                <button className='backButton' onClick={this.props.history.goBack}>Back</button>
-                </div>
-                <div className='mainBar'>
-                {this.renderRequest()}
-                <div className='commentSection'>
-                    <CommentForm onSubmit={this.handleSubmit}/>
- 
-                    {this.renderComments(this.context.currentComments)}
-
-                </div>
-                </div>
-            </section>
+                <section className='indivRequestPage'>
+                    <div className='sideBar'>
+                    <button className='backButton' onClick={this.props.history.goBack}>Back</button>
+                    </div>
+                    <div className='mainBar'>
+                    {this.renderRequest()}
+                    <div className='commentSection'>
+                        <CommentForm onSubmit={this.handleSubmit}/>
+                        {this.renderComments(this.context.currentComments)}
+                    </div>
+                    </div>
+                </section>
             </Error>
         )
     }

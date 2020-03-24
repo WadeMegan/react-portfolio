@@ -13,8 +13,8 @@
 
 .filterBox{
   background-color:#fa7d71;
-    padding:20px;
-    border-radius:2px;
+  padding:20px;
+  border-radius:2px;
 }
 
 
@@ -24,15 +24,13 @@
   width:48%;
 }
 
-  .filterInput {
-    width:100%;
-    height:24px;
-    border-radius: 2px;
-    background-color:white;
-  }
+.filterInput {
+  width:100%;
+  height:24px;
+  border-radius: 2px;
+  background-color:white;
+}
   
-
-
 .inputsDiv {
   display:flex;
   padding-top:10px;
@@ -76,7 +74,6 @@
   color:white;
   cursor: pointer;
 }
-
 
 .loginLink{
   color:black;

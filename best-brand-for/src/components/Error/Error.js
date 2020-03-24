@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import './Error.css'
 import RequestListContext from '../../contexts/RequestListContext'
 
-//Error boundary
+// Error boundary
 class Error extends Component {
     static contextType = RequestListContext
 

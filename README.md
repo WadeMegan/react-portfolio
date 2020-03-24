@@ -13,14 +13,6 @@ To demo Best Brand For, log in with:
 Best Brand For is a web application that allows users to make requests for products they are looking to purchase. Other users can then comment on the request to recommend their favorite brands for that product. For example, if a user is looking to buy a pair of running shoes, they can make a request for "Running Shoes" and other users might comment "Nike", "Adidas", etc. The goal of Best Brand For is to make it easy for users to make better buying decisions with the help of other users' experience.
 
 ### Landing Page
-<<<<<<< HEAD
-
-### Signin Page
-
-### All Requests Page
-
-### Individual Request Page
-=======
 ![landing page](https://i.imgur.com/ooIGggh.png)
 
 ### Signin Page
@@ -31,7 +23,6 @@ Best Brand For is a web application that allows users to make requests for produ
 
 ### Individual Request Page
 ![individual request page](https://i.imgur.com/l21llar.png)
->>>>>>> 38305080da8ccb6273c4e26e111a6e8a9bebb3fe
 
 ## Technologies Used
 

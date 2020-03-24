@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import {Redirect} from 'react-router-dom'
 import Error from '../../components/Error/Error'
-import './RegisterPage.css'
 import RequestApiService from '../../services/request-api-services'
 import RequestListContext from '../../contexts/RequestListContext'
 
@@ -12,16 +11,17 @@ export default class RegisterPage extends Component {
 
     state = {
         toLogin: false,
-        error:null
+        error: null
     }
 
     // upon successful login ... 
     onRegistrationSuccess = () => {
         this.setState({ 
-            toLogin:true, // set true for redirecting (see render method)
+            toLogin:true, // set true for redirecting to login page
         }) 
     }
 
+    //when form is submitted, POST new user
     handleSubmit = ev =>{
         ev.preventDefault()
         const { firstName, lastName, email, password } = ev.target
@@ -68,41 +68,41 @@ export default class RegisterPage extends Component {
     
     render(){
         const { error } = this.state
-        // upon successful login, redirect to your plants page
+        // upon successful registration, redirect to login page
         if(this.state.toLogin===true){
             return <Redirect to='/login'/>
         }
         return(
             <Error>
-            <section className='loginSection' >
-                <p className='outsideFormP'>Get the advice you need for the products you want.</p>
-                <div className='loginForm'>
-                    <h2>REGISTER</h2>
-                    <form onSubmit={this.handleSubmit}>
-                    <div role='alert' id='error'>
-                            {error && <p>{error}</p>}
+                <section className='loginSection' >
+                    <p className='outsideFormP'>Get the advice you need for the products you want.</p>
+                    <div className='loginForm'>
+                        <h2>REGISTER</h2>
+                        <form onSubmit={this.handleSubmit}>
+                        <div role='alert' id='error'>
+                                {error && <p>{error}</p>}
+                            </div>
+                        <div className='loginInputBox'>
+                            <label htmlFor='firstName'>First Name *</label>
+                            <input className='formInput' type='text' name='firstName' id='firstName' required='require' />
                         </div>
-                    <div className='loginInputBox'>
-                        <label htmlFor="firstName">First Name *</label>
-                        <input className='formInput' type="text" name='firstName' id='firstName' required='require' />
+                        <div className='loginInputBox'>
+                            <label htmlFor='lastName'>Last Name *</label>
+                            <input className='formInput' type='text' name='lastName' id='lastName' required='require'/>
+                        </div>
+                        <div className='loginInputBox'>
+                            <label htmlFor='email'>Email *</label>
+                            <input className='formInput' type='text' name='email' id='email' required='require'/>
+                        </div>
+                        <div className='loginInputBox'>
+                            <label htmlFor='password'>Password *</label>
+                            <input className='formInput' type='password' name='password' id='password' required='require'/>
+                        </div>
+                        <input type='submit' value='Submit' className='submitButton'/>
+                        </form>
                     </div>
-                    <div className='loginInputBox'>
-                        <label htmlFor="lastName">Last Name *</label>
-                        <input className='formInput' type="text" name='lastName' id='lastName' required='require'/>
-                    </div>
-                    <div className='loginInputBox'>
-                        <label htmlFor="email">Email *</label>
-                        <input className='formInput' type="text" name='email' id='email' required='require'/>
-                    </div>
-                    <div className='loginInputBox'>
-                        <label htmlFor="password">Password *</label>
-                        <input className='formInput' type="password" name='password' id='password' required='require'/>
-                    </div>
-                    <input type='submit' value='Submit' className='submitButton'/>
-                    </form>
-                </div>
-                <p className='outsideFormP'>Already have an account? <Link to='/login'>Login.</Link></p>
-            </section>
+                    <p className='outsideFormP'>Already have an account? <Link to='/login'>Login.</Link></p>
+                </section>
             </Error>
         )
     }
