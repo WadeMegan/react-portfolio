@@ -86,6 +86,7 @@ p,input,button,.project-button,.contact-form-submit,nav{
   height:84%;
   position:fixed;
   top:8%;
+  left:8%;
   background-color:white;
   border-radius:10px;
   overflow-y:scroll;
