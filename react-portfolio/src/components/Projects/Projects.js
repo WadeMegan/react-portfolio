@@ -2,11 +2,29 @@ import React from 'react';
 import bestBrandFor from '../../images/bestBrandFor.png'
 import dripDrop from '../../images/dripDrop.png'
 import foodiesOnFoot from '../../images/foodiesOnFoot.png'
+import arusha from '../../images/arusha.png'
 
 function Projects() {
   return (
     <section className="project">
         <h2>Megan Wade's Portfolio</h2>
+        <div className="project-container">
+            <img className="project-img" src={arusha} alt="arusha"/>
+            <section className="project-description">
+                <h3>Arusha Consulting</h3>
+                <ul className = "languages project-element">
+                    <li><i className="fab fa-html5 fa-2x"></i></li>
+                    <li><i className="fab fa-css3-alt fa-2x"></i></li>
+                    <li><i className="fab fa-js fa-2x"></i></li>
+                    <li><i className="fab fa-node fa-2x"></i></li>
+                </ul>
+                <p className="project-element">I built this full-stack web application for a recent client. The client, Arusha Consulting, is a boutique consulting firm with a focus on promoting diversity within the workplace. This website allows Arusha Consulting to communicate with users via About, Blog, and Contact pages. I implemented a headless CMS to allow the client to manage their own content. The project also includes a crowd-sourced database that holds informative resources concerning numerous social justice issues.</p>
+                <div className="project-buttons-container project-element">
+                    <a className="project-button" href="https://github.com/WadeMegan/arusha-consulting-client" target="_blank" rel="noopener noreferrer">View Code</a>
+                    <a className="project-button demo" href="https://www.arushainc.com/" target="_blank" rel="noopener noreferrer">Demo Project</a>
+                </div>
+            </section>
+        </div>
         <div className="project-container">
             <img className="project-img" src={bestBrandFor} alt="best brand for"/>
             <section className="project-description">

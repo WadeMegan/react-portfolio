@@ -37,9 +37,15 @@ h1,h2,h3{
   line-height:24px;
 }
 
-p,input,button,.project-button,.contact-form-submit,nav{
+p,input,button,.project-button,.contact-form-submit,nav {
   font-size:16px;
   line-height:24px;
+}
+
+.form-element {
+  font-size:16px !important;
+  line-height:24px !important;
+  font-family: 'Roboto', sans-serif !important;
 }
 
 /* styling for nav bar */
