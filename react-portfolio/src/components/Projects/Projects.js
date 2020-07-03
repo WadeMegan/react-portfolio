@@ -3,6 +3,9 @@ import bestBrandFor from '../../images/bestBrandFor.png'
 import dripDrop from '../../images/dripDrop.png'
 import foodiesOnFoot from '../../images/foodiesOnFoot.png'
 import arusha from '../../images/arusha.png'
+import memesSearch from '../../images/memesSearch.png'
+
+//make images 700 x 500 px
 
 function Projects() {
   return (
@@ -74,6 +77,22 @@ function Projects() {
                 <div className="project-buttons-container project-element">
                     <a className="project-button" href="https://github.com/WadeMegan/foodies-on-foot" target="_blank" rel="noopener noreferrer">View Code</a>
                     <a className="project-button demo" href="https://wademegan.github.io/foodies-on-foot/" target="_blank" rel="noopener noreferrer">Demo Project</a>
+                </div>
+            </section>
+        </div>
+        <div className="project-container">
+            <img className="project-img" src={memesSearch} alt="foodies on foot"/>
+            <section className="project-description">
+                <h3>Memes Search & Creator</h3>
+                <ul className = "languages project-element">
+                    <li><i className="fab fa-html5 fa-2x"></i></li>
+                    <li><i className="fab fa-css3-alt fa-2x"></i></li>
+                    <li><i className="fab fa-js fa-2x"></i></li>
+                </ul>
+                <p className="project-element">The Memes Search & Creator tool allows users to search for a meme and then add text to the selected meme. I created this project for the Mintbean CareerHack hackathon on June 29th, 2020. The challenge was to build a web application using Algolia in four hours. The web app was awarded Best Design.</p>
+                <div className="project-buttons-container project-element">
+                    <a className="project-button" href="https://github.com/WadeMegan/memes-search-app" target="_blank" rel="noopener noreferrer">View Code</a>
+                    <a className="project-button demo" href="https://epic-noether-9f3a55.netlify.app/" target="_blank" rel="noopener noreferrer">Demo Project</a>
                 </div>
             </section>
         </div>
