@@ -98,9 +98,9 @@ p,input,button,.project-button,.contact-form-submit,nav {
   overflow-y:scroll;
 }
 
-/*styling for megan-wade section */
+/*styling for megan-summers section */
 
-.megan-wade{
+.megan-summers{
   width:100%;
   background-color:white;
   padding:10%;
@@ -294,8 +294,8 @@ footer{
 /* styling for screen greater than 800px wide*/
 @media only screen and (min-width: 800px) {  
 
- /* only decrease padding on megan-wade section*/ 
-.megan-wade{
+ /* only decrease padding on megan-summers section*/ 
+.megan-summers{
     padding:5%;
 }
 /* project section: decrease top and bottom padding and
@@ -344,9 +344,9 @@ increase left and right padding*/
 /*styling for screen greater than 950px wide*/
 
 @media only screen and (min-width: 950px) {
-  /*change format of megan-wade section and 
+  /*change format of megan-summers section and 
   further decreases padding*/
-  .megan-wade{
+  .megan-summers{
       display:flex;
       align-items:center;
       padding:3%;

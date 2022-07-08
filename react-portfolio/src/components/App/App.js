@@ -37,7 +37,7 @@ class App extends Component {
     if(this.context.currentPage==='about'){
       return (
         <ul className="nav-items">
-          <li className="js-meganNavBar"><Link onClick={this.aboutClicked} to='/' className="js-megan active">MEGAN WADE</Link></li>
+          <li className="js-meganNavBar"><Link onClick={this.aboutClicked} to='/' className="js-megan active">MEGAN SUMMERS</Link></li>
           <li className="js-projectNavBar"><Link onClick={this.projectsClicked} to='/projects' className="js-project">PROJECTS</Link></li>
           <li className="js-contactNavBar"><Link onClick={this.contactClicked} to='/contact' className="js-contact">CONTACT</Link></li>
         </ul>
@@ -45,7 +45,7 @@ class App extends Component {
     } else if(this.context.currentPage==='projects'){
       return (
         <ul className="nav-items">
-          <li className="js-meganNavBar"><Link onClick={this.aboutClicked} to='/' className="js-megan">MEGAN WADE</Link></li>
+          <li className="js-meganNavBar"><Link onClick={this.aboutClicked} to='/' className="js-megan">MEGAN SUMMERS</Link></li>
           <li className="js-projectNavBar"><Link onClick={this.projectsClicked} to='/projects' className="js-project active">PROJECTS</Link></li>
           <li className="js-contactNavBar"><Link onClick={this.contactClicked} to='/contact' className="js-contact">CONTACT</Link></li>
         </ul>
@@ -53,7 +53,7 @@ class App extends Component {
     } else{
       return (
         <ul className="nav-items">
-          <li className="js-meganNavBar"><Link onClick={this.aboutClicked} to='/' className="js-megan">MEGAN WADE</Link></li>
+          <li className="js-meganNavBar"><Link onClick={this.aboutClicked} to='/' className="js-megan">MEGAN SUMMERS</Link></li>
           <li className="js-projectNavBar"><Link onClick={this.projectsClicked} to='/projects' className="js-project">PROJECTS</Link></li>
           <li className="js-contactNavBar"><Link onClick={this.contactClicked} to='/contact' className="js-contact active">CONTACT</Link></li>
         </ul>
@@ -76,8 +76,8 @@ class App extends Component {
       </main>
       <footer>
          <ul className = "social-icons">
-             <li><a href="https://www.linkedin.com/in/megan-wade-909129124/" target="_blank" rel="noopener noreferrer" aria-label="linkedin link"><i className="fab fa-linkedin fa-2x"></i></a></li>
-             <li><a href="mailto:meganwade96@gmail.com" target="_blank" rel="noopener noreferrer" aria-label="email link"><i className="fas fa-envelope-square fa-2x"></i></a></li>
+             <li><a href="https://www.linkedin.com/in/megansummersdev/" target="_blank" rel="noopener noreferrer" aria-label="linkedin link"><i className="fab fa-linkedin fa-2x"></i></a></li>
+             <li><a href="mailto:summersmegan15@gmail.com" target="_blank" rel="noopener noreferrer" aria-label="email link"><i className="fas fa-envelope-square fa-2x"></i></a></li>
              <li><a href="https://github.com/WadeMegan" target="_blank" rel="noopener noreferrer" aria-label="github link"><i className="fab fa-github-square fa-2x"></i></a></li>
          </ul> 
       </footer>

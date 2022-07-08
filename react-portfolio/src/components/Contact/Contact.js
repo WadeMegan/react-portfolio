@@ -10,7 +10,7 @@ export default class Contact extends Component {
         let nameVal= name.value
         let messageVal = message.value
 
-        window.location.href = `mailto:wademegan96@gmail.com?subject=Message From ${nameVal}&body=${messageVal}`
+        window.location.href = `mailto:summersmegan15@gmail.com?subject=Message From ${nameVal}&body=${messageVal}`
 
         //reset form
         name.value=''
